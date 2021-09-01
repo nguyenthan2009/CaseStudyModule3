@@ -7,6 +7,24 @@ private int bornYear;
 private String address;
 private double salary;
 
+    public Coach() {
+    }
+
+    public Coach(int id, String nameCoach, int bornYear, String address, double salary) {
+        this.id = id;
+        this.nameCoach = nameCoach;
+        this.bornYear = bornYear;
+        this.address = address;
+        this.salary = salary;
+    }
+
+    public Coach(String nameCoach, int bornYear, String address, double salary) {
+        this.nameCoach = nameCoach;
+        this.bornYear = bornYear;
+        this.address = address;
+        this.salary = salary;
+    }
+
     public int getId() {
         return id;
     }
