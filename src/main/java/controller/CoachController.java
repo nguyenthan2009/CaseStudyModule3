@@ -36,23 +36,12 @@ public class CoachController extends HttpServlet {
 
                 break;
             default:
-            showAllCoach (req,resp);
+
                 break;
         }
     }
 
-    private void showAllCoach(HttpServletRequest req, HttpServletResponse resp) {
-        List<Coach> coachList = service.findAll();
-        req.setAttribute("coaches", coachList);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/coachList.jsp");
-        try {
-            dispatcher.forward(req, resp);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
