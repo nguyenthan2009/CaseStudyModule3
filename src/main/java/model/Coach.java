@@ -7,6 +7,9 @@ private int bornYear;
 private String address;
 private double salary;
 
+    public Coach(String nameCoach, int bornYear, String address, double salary) {
+    }
+
     public int getId() {
         return id;
     }

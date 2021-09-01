@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecd3f3b0-4d53-4981-be0f-458bc6d29d81" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/coachList.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/user/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/CoachController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CoachController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Coach.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Coach.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/coach/CoachService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/coach/CoachService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,17 +75,6 @@
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.52">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CaseStudyModule3 [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -275,7 +264,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/CaseStudyModule3$Tomcat_9_0_52.ic" NAME="Tomcat 9.0.52 Coverage Results" MODIFIED="1630413062760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/CaseStudyModule3$CaseStudyModule3__dependencies_.ic" NAME="CaseStudyModule3 [dependencies] Coverage Results" MODIFIED="1630417143338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/CaseStudyModule3$Tomcat_9_0_52.ic" NAME="Tomcat 9.0.52 Coverage Results" MODIFIED="1630413062760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
