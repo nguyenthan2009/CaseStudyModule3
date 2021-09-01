@@ -14,8 +14,7 @@ import java.util.List;
 public class UserService implements  IUserService {
     Connection connection = ConnectMySQL.getConnection();
     public static final String SELECT_USER = "SELECT * FROM user WHERE email = ? and passWord = ?";
-    public static final String SELECT_PLAYER = "SELECT*FROM player";
-
+    public static final String SELECT_roleUser = "SELECT role from role join user on role.user_id= user.id where email = ? ";
 
     @Override
     public user findByEmailAndPassword(String email, String password) {
@@ -34,37 +33,32 @@ public class UserService implements  IUserService {
                 user.setPassWord(password);
             }
             System.out.println("SELECT -->"+statement);
-            connection.setAutoCommit(true);  //Neu de connection.close() hoac connection.commit() thi chi dang nhap duoc 1 lan
-            //Su khac biet cua setAutoCommit(true) la co the tu dong cap nhat lai query
+            connection.setAutoCommit(true);
             return user;
         } catch (SQLException e){
             e.printStackTrace();
         }
         return null;
     }
-    public static final String SELECT_ALL_COACH = "select *from coach; ";
+
+
+
     @Override
-    public List<Coach> findAll() {
-        List<Coach> coachList = new ArrayList<>();
-        try (
-                PreparedStatement st =connection.prepareStatement(SELECT_ALL_COACH)){
-            ResultSet rs = st.executeQuery();
+    public String roleUser(String email) {
+        try{
+            PreparedStatement statement = connection.prepareStatement(SELECT_roleUser);
+            statement.setString(1,email);
+            ResultSet rs = statement.executeQuery();
+            String role = null;
             while (rs.next()){
-                int id = rs.getInt("id");
-                String nameCoach = rs.getString("nameCoach");
-                int bornYear = rs.getInt("bornYear");
-                String address = rs.getString("address");
-                double salary = rs.getDouble("salary");
-                Coach coach = new Coach(id,nameCoach,bornYear,address,salary);
-                coachList.add(coach);
+                role = rs.getString("role");
             }
+            return role;
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return coachList;
+        return null;
     }
-
-
-
 }
 

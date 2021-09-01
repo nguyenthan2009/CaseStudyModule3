@@ -2,6 +2,8 @@ package controller;
 
 
 import model.Coach;
+import model.user;
+import service.user.IUserService;
 import service.user.UserService;
 
 import javax.servlet.RequestDispatcher;
@@ -16,46 +18,49 @@ import java.util.List;
 
 @WebServlet(name="servlet",value = "/users")
 public class UserController extends HttpServlet {
-    private UserService service = new UserService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+    }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
         if (action == null) {
             action = "";
         }
-            switch (action) {
-                case "showCoach":
-                    break;
-                case "create":
+        switch (action) {
+            case "create":
 
-                    break;
-                case "edit":
-                    break;
-                case "search":
-                    break;
-                default:
-                    showAllCoach(req,resp);
-
-            }
+                break;
+            case "edit":
+                break;
+            case "search":
+                break;
+            default:
+               // trang đăng nhập
+               login(req,resp);
 
 
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-    }
-    public void showAllCoach(HttpServletRequest req, HttpServletResponse resp){
-        List<Coach> coachList = service.findAll();
-        req.setAttribute("listCoach", coachList);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/coachList.jsp");
-        try {
-            dispatcher.forward(req, resp);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
+    public void login(HttpServletRequest req, HttpServletResponse resp){
+        String email = req.getParameter("email");
+        String password = req.getParameter("password");
+        IUserService userService = new UserService();
+          user user = userService.findByEmailAndPassword(email,password);
+          String role = userService.roleUser(email);
+          if(user !=null && role.equals("player")){
+              // tới trang (/plays)
+          }if(user !=null && role.equals("coach")){
+              // tới trang (/coach)
+        }if(user !=null && role.equals("admin")){
+              // tới trang (/admin)
+        }else{
+              // tới trang đăng nhập (/users)
+        }
+    }
+
+
+
 }
