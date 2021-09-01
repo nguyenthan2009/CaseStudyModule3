@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ecd3f3b0-4d53-4981-be0f-458bc6d29d81" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/CoachController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CoachController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +16,16 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -222,6 +231,7 @@
       <workItem from="1630463906348" duration="59000" />
       <workItem from="1630464587655" duration="12355000" />
       <workItem from="1630488707412" duration="638000" />
+      <workItem from="1630508865605" duration="729000" />
     </task>
     <servers />
   </component>
