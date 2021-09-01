@@ -11,6 +11,8 @@ import java.sql.SQLException;
 public class UserService implements  IUserService {
     Connection connection = ConnectMySQL.getConnection();
     public static final String SELECT_USER = "SELECT * FROM user WHERE email = ? and passWord = ?";
+    public static final String SELECT_PLAYER = "SELECT*FROM player";
+
 
     @Override
     public user findByEmailAndPassword(String email, String password) {
@@ -37,5 +39,7 @@ public class UserService implements  IUserService {
         }
         return null;
     }
+
+
 }
 

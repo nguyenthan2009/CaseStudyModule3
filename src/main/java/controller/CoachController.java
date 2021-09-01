@@ -36,9 +36,28 @@ public class CoachController extends HttpServlet {
 
                 break;
             default:
+<<<<<<< HEAD
 
                 break;
         }
+=======
+                showAllCoach (req,resp);
+                break;
+        }
+    }
+
+    private void showAllCoach(HttpServletRequest req, HttpServletResponse resp) {
+        List<Coach> coachList = service.findAll();
+        req.setAttribute("coaches", coachList);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/coachList.jsp");
+        try {
+            dispatcher.forward(req, resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+>>>>>>> master
     }
 
 
@@ -67,3 +86,9 @@ public class CoachController extends HttpServlet {
     }
 }
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> master

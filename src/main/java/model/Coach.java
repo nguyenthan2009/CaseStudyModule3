@@ -7,6 +7,7 @@ private int bornYear;
 private String address;
 private double salary;
 
+<<<<<<< HEAD
     public Coach() {
     }
 
@@ -23,6 +24,9 @@ private double salary;
         this.bornYear = bornYear;
         this.address = address;
         this.salary = salary;
+=======
+    public Coach(String nameCoach, int bornYear, String address, double salary) {
+>>>>>>> master
     }
 
     public int getId() {
