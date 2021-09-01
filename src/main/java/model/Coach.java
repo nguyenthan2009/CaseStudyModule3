@@ -1,15 +1,11 @@
 package model;
 
 public class Coach {
-private int id;
-private String nameCoach;
-private int bornYear;
-private String address;
-private double salary;
-
-<<<<<<< HEAD
-    public Coach() {
-    }
+    private int id;
+    private String nameCoach;
+    private int bornYear;
+    private String address;
+    private double salary;
 
     public Coach(int id, String nameCoach, int bornYear, String address, double salary) {
         this.id = id;
@@ -17,16 +13,6 @@ private double salary;
         this.bornYear = bornYear;
         this.address = address;
         this.salary = salary;
-    }
-
-    public Coach(String nameCoach, int bornYear, String address, double salary) {
-        this.nameCoach = nameCoach;
-        this.bornYear = bornYear;
-        this.address = address;
-        this.salary = salary;
-=======
-    public Coach(String nameCoach, int bornYear, String address, double salary) {
->>>>>>> master
     }
 
     public int getId() {
