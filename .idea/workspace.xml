@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecd3f3b0-4d53-4981-be0f-458bc6d29d81" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/coachList.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Coach.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Coach.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/user/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/user/IUserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/user/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -243,7 +244,7 @@
       <workItem from="1630463906348" duration="59000" />
       <workItem from="1630463992115" duration="753000" />
       <workItem from="1630464792992" duration="3846000" />
-      <workItem from="1630478856966" duration="8097000" />
+      <workItem from="1630478856966" duration="11904000" />
     </task>
     <servers />
   </component>
