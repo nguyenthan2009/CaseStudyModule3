@@ -21,6 +21,7 @@ private String image;
         this.image = image;
     }
 
+
     public int getId() {
         return id;
     }

@@ -24,7 +24,8 @@ public class AdminController extends HttpServlet {
             action = "";
         }
         switch (action) {
-            case "create":
+            case "newCoach":
+                createNewCoach(req,resp);
                 break;
             case "edit":
                 break;
@@ -34,6 +35,27 @@ public class AdminController extends HttpServlet {
                 showAllCoach(req,resp);
 
         }
+    }
+
+    private void createNewCoach(HttpServletRequest req, HttpServletResponse resp) {
+        String email = req.getParameter("email");
+        String password = req.getParameter("password");
+        String fullname = req.getParameter("fullname");
+        int bornYear = Integer.parseInt(req.getParameter("bornYear"));
+        String address = req.getParameter("address");
+        double salary = Double.parseDouble(req.getParameter("salary"));
+        String role = req.getParameter("role");
+        service.saveUserAndCoach(email,password,fullname,bornYear,address,salary, role);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("createCoach.jsp");
+        try {
+            requestDispatcher.forward(req,resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     @Override
@@ -53,4 +75,5 @@ public class AdminController extends HttpServlet {
             e.printStackTrace();
         }
     }
+
 }

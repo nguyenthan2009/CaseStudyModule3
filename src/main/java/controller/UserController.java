@@ -21,7 +21,23 @@ public class UserController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String action = req.getParameter("action");
+        if (action == null) {
+            action = "";
+        }
+        switch (action) {
+            case "create":
 
+                break;
+            case "edit":
+                break;
+            case "search":
+                break;
+            default:
+                showformLogin(req,resp);
+
+
+        }
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -38,27 +54,34 @@ public class UserController extends HttpServlet {
             case "search":
                 break;
             default:
-               // trang đăng nhập
                login(req,resp);
 
 
         }
     }
-    public void login(HttpServletRequest req, HttpServletResponse resp){
+    public void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         IUserService userService = new UserService();
+          String destPage = "/users";
           user user = userService.findByEmailAndPassword(email,password);
           String role = userService.roleUser(email);
           if(user !=null && role.equals("player")){
-              // tới trang (/plays)
+              destPage = "/players";
           }if(user !=null && role.equals("coach")){
-              // tới trang (/coach)
-        }if(user !=null && role.equals("admin")){
-              // tới trang (/admin)
-        }else{
-              // tới trang đăng nhập (/users)
+              destPage = "/coach";
+          }if(user !=null && role.equals("admin")){
+              destPage = "/admin";
+          }else{
+            String message = "Invalid email/password";
+            req.setAttribute("message", message);
         }
+         resp.sendRedirect(destPage);
+
+    }
+    public void showformLogin(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher dispatcher = req.getRequestDispatcher("login.jsp");
+        dispatcher.forward(req, resp);
     }
 
 

@@ -13,8 +13,8 @@ import java.util.List;
 
 public class UserService implements  IUserService {
     Connection connection = ConnectMySQL.getConnection();
-    public static final String SELECT_USER = "SELECT * FROM user WHERE email = ? and passWord = ?";
-    public static final String SELECT_roleUser = "SELECT role from role join user on role.user_id= user.id where email = ? ";
+    public static final String SELECT_USER = "SELECT * FROM user WHERE email = ? and password = ?";
+    public static final String SELECT_roleUser = "SELECT role from role join user on role.id_user= user.id where email = ? ";
 
     @Override
     public user findByEmailAndPassword(String email, String password) {
