@@ -16,6 +16,12 @@ public class user {
         this.passWord = passWord;
     }
 
+    public user(String fullName, String email, String passWord) {
+        this.fullName = fullName;
+        this.email = email;
+        this.passWord = passWord;
+    }
+
     public int getId() {
         return id;
     }

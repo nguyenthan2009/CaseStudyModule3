@@ -1,3 +1,4 @@
+
 package controller;
 
 import model.Coach;
@@ -25,16 +26,38 @@ public class AdminController extends HttpServlet {
         }
         switch (action) {
             case "create":
+                addNewCoach(req,resp);
                 break;
             case "edit":
                 break;
             case "search":
                 break;
             default:
-                showAllCoach(req,resp);
+                showAllCoach(req, resp);
 
         }
     }
+
+    private void addNewCoach(HttpServletRequest req, HttpServletResponse resp) {
+        String nameCoach = req.getParameter("name");
+        int bornYear = Integer.parseInt(req.getParameter("bornYear"));
+        String address = req.getParameter("address");
+        double salary = Double.parseDouble(req.getParameter("salary"));
+        Coach coach = new Coach(nameCoach, bornYear ,address, salary);
+
+        String
+        service.saveNewCoach(coach);
+    }
+
+
+//    String name = request.getParameter("name");
+//    String email = request.getParameter("email");
+//    String country = request.getParameter("country");
+//    User newUser = new User(name, email, country);
+//        userDAO.insertUserStore(newUser);
+//    RequestDispatcher dispatcher = request.getRequestDispatcher("user/create.jsp");
+//        dispatcher.forward(request, response);
+//}
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

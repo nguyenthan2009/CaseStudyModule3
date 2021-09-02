@@ -15,6 +15,13 @@ public class Coach {
         this.salary = salary;
     }
 
+    public Coach(String nameCoach, int bornYear, String address, double salary) {
+        this.nameCoach = nameCoach;
+        this.bornYear = bornYear;
+        this.address = address;
+        this.salary = salary;
+    }
+
     public int getId() {
         return id;
     }

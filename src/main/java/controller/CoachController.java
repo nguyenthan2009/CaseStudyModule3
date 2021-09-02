@@ -36,12 +36,7 @@ public class CoachController extends HttpServlet {
 
                 break;
             default:
-<<<<<<< HEAD
 
-                break;
-        }
-=======
-                showAllCoach (req,resp);
                 break;
         }
     }
@@ -57,9 +52,8 @@ public class CoachController extends HttpServlet {
         } catch (IOException e) {
             e.printStackTrace();
         }
->>>>>>> master
-    }
 
+    }
 
 
     @Override
@@ -86,9 +80,3 @@ public class CoachController extends HttpServlet {
     }
 }
 
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> master
