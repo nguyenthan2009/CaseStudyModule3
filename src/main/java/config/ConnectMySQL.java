@@ -11,7 +11,7 @@ public class ConnectMySQL {
     }
     public static final String URL = "jdbc:mysql://localhost:3306/footballmanager";
     public static final String USER = "root";
-    public static final String PASSWORD = "ronaldo12";
+    public static final String PASSWORD = "123456";
     public static Connection getConnection(){
         if(connection==null){
             try {

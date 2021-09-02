@@ -1,3 +1,4 @@
+create database footballmanager;
 use footballmanager;
 create table user(
                      id int auto_increment primary key ,
