@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ecd3f3b0-4d53-4981-be0f-458bc6d29d81" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/91d19032-714f-4dd9-9f0d-5a2255947958.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/91d19032-714f-4dd9-9f0d-5a2255947958.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/config/ConnectMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/ConnectMySQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="ecd3f3b0-4d53-4981-be0f-458bc6d29d81" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -227,7 +219,7 @@
       <workItem from="1630463906348" duration="59000" />
       <workItem from="1630464294451" duration="8943000" />
       <workItem from="1630505054686" duration="871000" />
-      <workItem from="1630553512589" duration="787000" />
+      <workItem from="1630553512589" duration="1406000" />
     </task>
     <servers />
   </component>
