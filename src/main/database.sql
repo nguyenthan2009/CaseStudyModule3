@@ -60,8 +60,6 @@ create table weekofCoach(
                             bonus double not null ,
                             foreign key (id_coach) references coach(id)
 );
-
 SELECT * FROM footballmanager.weekofplayer;
-select (player.salary+ preformedSalary*playtimeofWeek+bonus) as salaryofWeek from player join weekofplayer on player.id= weekofplayer.id_player where id_player = 1 group by player.namePlayer;
-select ( coach.salary + bonus) as salaryofWeek from coach join weekofcoach on coach.id = weekofcoach.id_coach where id_coach= 1 group by coach.nameCoach;
-
+select player.namePlayer ,week,(player.salary+ preformedSalary*playtimeofWeek+bonus) as salaryofWeek from player join weekofplayer on player.id= weekofplayer.id_player where id_player = 1  group by weekofplayer.week;
+select coach.nameCoach, week,( coach.salary + bonus) as salaryofWeek from coach join weekofcoach on coach.id = weekofcoach.id_coach where id_coach= 1 group by weekofcoach.week;
