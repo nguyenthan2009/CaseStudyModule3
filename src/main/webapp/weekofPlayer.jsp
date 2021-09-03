@@ -41,42 +41,32 @@
 <body>
 
 <div class="container">
-    <h2>Login Form</h2>
+    <h2>Create weekofPlayer</h2>
     <form method="post" id="loginForm">
         <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+            <label for="namePlayer">NamePlayer</label>
+            <input type="text" class="form-control" id="namePlayer" placeholder="Enter namePlayer" name="namePlayer">
         </div>
         <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
-            <br>${message}
+            <label for="week">Week</label>
+            <input type="text" class="form-control" id="week" placeholder="Enter week" name="week">
         </div>
-        <div class="checkbox">
-            <label><input type="checkbox" name="remember"> Remember me</label>
+        <div class="form-group">
+            <label for="bonus">Bonus</label>
+            <input type="text" class="form-control" id="bonus" placeholder="Enter bonus" name="bonus">
         </div>
+        <div class="form-group">
+            <label for="playtimeofWeek">PlayTimeOfWeek</label>
+            <input type="text" class="form-control" id="playtimeofWeek" placeholder="Enter playtimeofWeek" name="playtimeofWeek">
+        </div>
+        <div class="form-group">
+            <label for="preformedSalary"> PreformedSalary</label>
+            <input type="text" class="form-control" id="preformedSalary" placeholder="Enter preformedSalary" name="preformedSalary">
+        </div>
+
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
 </div>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $("#loginForm").validate({
-            rules: {
-                email: {
-                    required: true
-                },
-                password: "required",
-            },
-            messages: {
-                email: {
-                    required: "The email is required!",
-                },
-                password: "Please enter password"
-            }
-        });
-    });
-
-</script>
 
 
 

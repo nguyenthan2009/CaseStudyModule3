@@ -63,7 +63,7 @@ public class UserController extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         IUserService userService = new UserService();
-          String destPage = "/users";
+          String destPage = "login.jsp";
           user user = userService.findByEmailAndPassword(email,password);
           String role = userService.roleUser(email);
           if(user !=null && role.equals("player")){
@@ -75,6 +75,10 @@ public class UserController extends HttpServlet {
           }else{
             String message = "Invalid email/password";
             req.setAttribute("message", message);
+
+            RequestDispatcher dispatcher = req.getRequestDispatcher(destPage);
+            dispatcher.forward(req, resp);
+
         }
          resp.sendRedirect(destPage);
 

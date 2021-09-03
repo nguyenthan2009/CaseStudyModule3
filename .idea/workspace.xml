@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecd3f3b0-4d53-4981-be0f-458bc6d29d81" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/ListSalaryWeekOfPlayer.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/createCoach.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/createPlayer.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/weekSalaryofPlayer.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/weekofCoach.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/weekofPlayer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/weekSaralyofPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/weekSaralyofPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/admin/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/admin/AdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/admin/IAdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/admin/IAdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +44,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="jsf" />
         <option value="Jsp File" />
       </list>
     </option>
@@ -71,7 +84,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../demoDuAn-master" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -82,6 +95,19 @@
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.52">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CaseStudyModule3 [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -258,7 +284,19 @@
       <workItem from="1630552306263" duration="527000" />
       <workItem from="1630552853876" duration="3582000" />
       <workItem from="1630558444130" duration="1018000" />
-      <workItem from="1630566679331" duration="2245000" />
+      <workItem from="1630566679331" duration="4778000" />
+      <workItem from="1630573740087" duration="6236000" />
+      <workItem from="1630580105784" duration="2268000" />
+      <workItem from="1630582809695" duration="207000" />
+      <workItem from="1630585363073" duration="2507000" />
+      <workItem from="1630588831137" duration="223000" />
+      <workItem from="1630589165006" duration="3280000" />
+      <workItem from="1630597086978" duration="2148000" />
+      <workItem from="1630631148086" duration="6717000" />
+      <workItem from="1630637893239" duration="3340000" />
+      <workItem from="1630650974793" duration="65000" />
+      <workItem from="1630651512553" duration="3147000" />
+      <workItem from="1630654748705" duration="6767000" />
     </task>
     <servers />
   </component>

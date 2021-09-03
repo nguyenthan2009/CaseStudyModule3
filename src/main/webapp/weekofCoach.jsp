@@ -17,7 +17,7 @@
             padding-top: 100px;
         }
         h2{
-            padding-left: 130px;
+            padding-left: 100px;
             color: chocolate;
         }
         .btn{
@@ -41,42 +41,24 @@
 <body>
 
 <div class="container">
-    <h2>Login Form</h2>
+    <h2>Create weekofCoach</h2>
     <form method="post" id="loginForm">
         <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+            <label for="nameCoach">NameCoach</label>
+            <input type="text" class="form-control" id="nameCoach" placeholder="Enter nameCoach" name="nameCoach">
         </div>
         <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
-            <br>${message}
+            <label for="week">Week</label>
+            <input type="text" class="form-control" id="week" placeholder="Enter week" name="week">
         </div>
-        <div class="checkbox">
-            <label><input type="checkbox" name="remember"> Remember me</label>
+        <div class="form-group">
+            <label for="week">Bonus</label>
+            <input type="text" class="form-control" id="bonus" placeholder="Enter bonus" name="bonus">
         </div>
+
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
 </div>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $("#loginForm").validate({
-            rules: {
-                email: {
-                    required: true
-                },
-                password: "required",
-            },
-            messages: {
-                email: {
-                    required: "The email is required!",
-                },
-                password: "Please enter password"
-            }
-        });
-    });
-
-</script>
 
 
 

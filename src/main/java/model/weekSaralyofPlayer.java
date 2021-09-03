@@ -1,16 +1,22 @@
 package model;
 
 public class weekSaralyofPlayer {
-    private Player Player;
+    private String namePlayer;
     private int week;
     private double weekSalary;
 
-    public Player getFootballPlayer() {
-        return Player;
+    public weekSaralyofPlayer(String namePlayer, int week, double weekSalary) {
+        this.namePlayer = namePlayer;
+        this.week = week;
+        this.weekSalary = weekSalary;
     }
 
-    public void setFootballPlayer(Player Player) {
-        this.Player = Player;
+    public String getNamePlayer() {
+        return namePlayer;
+    }
+
+    public void setNamePlayer(String namePlayer) {
+        this.namePlayer = namePlayer;
     }
 
     public int getWeek() {
