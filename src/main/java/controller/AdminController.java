@@ -1,7 +1,6 @@
 package controller;
 
-import model.Coach;
-import model.weekSaralyofPlayer;
+import model.*;
 import service.admin.AdminService;
 import service.user.UserService;
 
@@ -41,12 +40,31 @@ public class AdminController extends HttpServlet {
             case "salaryWeekofPlayer":
                 formSalaryWeekOfPlayer(req,resp);
                 break;
-
-            default:
+            case "salaryWeekofCoach":
+                formSalaryWeekOfCoach(req,resp);
+                break;
+            case  "listCoach":
                 showAllCoach(req, resp);
+                break;
+            case "Test":
+                showListSalaryWeekofPlayer1(req,resp);
+            default:
+                showAllPlayer(req, resp);
 
         }
     }
+
+    private void formSalaryWeekOfCoach(HttpServletRequest req, HttpServletResponse resp) {
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/weekSalaryofPlayer.jsp");
+        try {
+            dispatcher.forward(req,resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void showformWeekofcoach(HttpServletRequest req, HttpServletResponse resp) {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/weekofCoach.jsp");
@@ -102,12 +120,30 @@ public class AdminController extends HttpServlet {
             case "salaryWeekofPlayer":
                 showListSalaryWeekofPlayer(req,resp);
                 break;
+            case "salaryWeekofCoach":
+                showListSalaryWeekofCoach(req,resp);
+                break;
 
 
             default:
                 break;
 
         }
+    }
+
+    private void showListSalaryWeekofCoach(HttpServletRequest req, HttpServletResponse resp) {
+        int week = Integer.parseInt(req.getParameter("week"));
+        List<weekSalaryofCoach> list = service.WEEK_SALARYOF_COACH_LIST(week);
+        req.setAttribute("listSalaryCoach",list);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/ListSalaryWeekOfCoach.jsp");
+        try {
+            requestDispatcher.forward(req,resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void showAllCoach(HttpServletRequest req, HttpServletResponse resp) {
@@ -237,4 +273,29 @@ public class AdminController extends HttpServlet {
             e.printStackTrace();
         }
     }
+    public void showAllPlayer(HttpServletRequest req, HttpServletResponse resp){
+        List<Player> playerList = service.findAllPlayer();
+        req.setAttribute("listPlayer",playerList);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/Test.jsp");
+        try {
+            requestDispatcher.forward(req,resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void showListSalaryWeekofPlayer1(HttpServletRequest req, HttpServletResponse resp){
+        List<Chart> chartList = service.chartofTeam(1,2,3,4);
+        req.setAttribute("chartList",chartList);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/salaryChartofTeeam.jsp");
+        try {
+            requestDispatcher.forward(req,resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

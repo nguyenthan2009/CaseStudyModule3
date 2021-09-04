@@ -65,13 +65,19 @@
                 email: {
                     required: true
                 },
-                password: "required",
+                password: {
+                    required: true,
+                    minlength: 6
+                }
             },
             messages: {
                 email: {
                     required: "The email is required!",
                 },
-                password: "Please enter password"
+                password: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 6 characters long"
+                },
             }
         });
     });

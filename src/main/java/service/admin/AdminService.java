@@ -1,8 +1,7 @@
 package service.admin;
 
 import config.ConnectMySQL;
-import model.Coach;
-import model.weekSaralyofPlayer;
+import model.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,6 +24,12 @@ public class AdminService implements IAdminService {
     public static final String SELECT_ID_PLAYERBYNAME = "select id from player where namePlayer = ?";
     public static final String INSERT_INTO_WEEKOFPLAYER = "insert into weekofplayer" + "(id_player,week,bonus,playtimeofWeek, preformedSalary) VALUES" + "(?,?,?,?,?)";
     public static final String SELECT_SALARYWEEKOFPLAYER = "select player.namePlayer ,week,(player.salary+ preformedSalary*playtimeofWeek+bonus) as salaryofWeek from player join weekofplayer on player.id= weekofplayer.id_player where week= ? ;";
+    public static final String SELECT_SALARYWEEKOFCOACH = "select coach.nameCoach, week,( coach.salary + bonus) as salaryofWeek from coach join weekofcoach on coach.id = weekofcoach.id_coach where week= ?; ";
+    public static final String SELECT_TOTALSALARYOF_PLAYER_OFALLWEEK = "select sum(player.salary+ preformedSalary*playtimeofWeek+bonus) as totalSalaryWeekofPlayer from player join weekofplayer on player.id= weekofplayer.id_player ;";
+    public static final String SELECT_TOTALSALARYOF_COACH_OFALLWEEK ="select sum(coach.salary + bonus) as totalSalaryWeekofCoach from  coach join weekofcoach on coach.id = weekofcoach.id_coach ;";
+    public static final String SELECT_TOTALSALARY_COACH_OFWEEK = "select sum(coach.salary + bonus) as totalSalaryWeekofCoachofWeek from  coach join weekofcoach on coach.id = weekofcoach.id_coach where week= ?;";
+    public static final String SELECT_TOTALSALARY_PLAYER_OFWEEK ="select sum(player.salary+ preformedSalary*playtimeofWeek+bonus) as totalSalaryWeekofPlayerofWeek from player join weekofplayer on player.id= weekofplayer.id_player where week =? ;";
+    public static final  String SELECT_ALL_PLAYER = "select*from player;";
     @Override
     public List<Coach> findAll() {
         List<Coach> coachList = new ArrayList<>();
@@ -193,8 +198,9 @@ public class AdminService implements IAdminService {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()){
                 String namePlayer = rs.getString("namePlayer");
+                int week1 = rs.getInt("week");
                 double salaryofWeek = rs.getDouble("salaryofWeek");
-                weekSaralyofPlayer weekSaralyofPlayer = new weekSaralyofPlayer(namePlayer,week,salaryofWeek);
+                weekSaralyofPlayer weekSaralyofPlayer = new weekSaralyofPlayer(namePlayer,week1,salaryofWeek);
                 listSalaryofPlayer.add(weekSaralyofPlayer);
             }
             return listSalaryofPlayer;
@@ -204,4 +210,152 @@ public class AdminService implements IAdminService {
         }
         return  null;
     }
+
+    @Override
+    public List<Player> findAllPlayer() {
+        List<Player> playerList = new ArrayList<>();
+        try (
+                PreparedStatement st = connection.prepareStatement(SELECT_ALL_PLAYER)) {
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String namePlayer = rs.getString("namePlayer");
+                int bornYear = rs.getInt("bornYear");
+                String address = rs.getString("address");
+                String position = rs.getString("position");
+                int salary = rs.getInt("salary");
+                String status = rs.getString("status");
+                String image = rs.getString("image");
+                Player player = new Player(id, namePlayer, bornYear, address, position, salary, status, image);
+                playerList.add(player);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return playerList;
+
+    }
+
+    @Override
+    public List<weekSalaryofCoach> WEEK_SALARYOF_COACH_LIST(int week) {
+        List<weekSalaryofCoach> weekSalaryofCoaches =  new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_SALARYWEEKOFCOACH);
+            preparedStatement.setInt(1,week);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
+                String nameCoach = rs.getString("nameCoach");
+                int week1 = rs.getInt("week");
+                double salaryofWeek = rs.getDouble("salaryofWeek");
+                 weekSalaryofCoach weekSalaryofCoach = new weekSalaryofCoach(nameCoach,week1,salaryofWeek);
+                weekSalaryofCoaches.add(weekSalaryofCoach);
+            }
+            return weekSalaryofCoaches;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return  null;
+    }
+
+    @Override
+    public List<Chart> chartofTeam(int week1, int week2, int week3, int week4) {
+        List<Chart> chartList = new ArrayList<>();
+        try {
+            PreparedStatement st = connection.prepareStatement( SELECT_TOTALSALARYOF_PLAYER_OFALLWEEK);
+            ResultSet rs = st.executeQuery();
+             double totalSalaryWeekofPlayer =0;
+            while (rs.next()){
+                totalSalaryWeekofPlayer = rs.getDouble("totalSalaryWeekofPlayer");
+            }
+            PreparedStatement st1 = connection.prepareStatement(SELECT_TOTALSALARYOF_COACH_OFALLWEEK );
+            ResultSet rs1 = st1.executeQuery();
+            double totalSalaryWeekofCoach =0;
+            while(rs1.next()){
+                 totalSalaryWeekofCoach = rs1.getDouble("totalSalaryWeekofCoach");
+            }
+            double totalSalaryTeam = totalSalaryWeekofPlayer +  totalSalaryWeekofCoach;
+            PreparedStatement st2 = connection.prepareStatement(SELECT_TOTALSALARY_COACH_OFWEEK);
+            st2.setInt(1,week1);
+            ResultSet rs2 = st2.executeQuery();
+            double totalSalaryWeekofCoachofWeek =0;
+            while (rs2.next()){
+                totalSalaryWeekofCoachofWeek = rs2.getDouble("totalSalaryWeekofCoachofWeek");
+            }
+            PreparedStatement st3 = connection.prepareStatement(SELECT_TOTALSALARY_PLAYER_OFWEEK);
+            st3.setInt(1,week1);
+            ResultSet rs3 = st3.executeQuery();
+            double totalSalaryWeekofPlayerofWeek =0;
+            while(rs3.next()){
+                totalSalaryWeekofPlayerofWeek = rs3.getDouble("totalSalaryWeekofPlayerofWeek");
+            }
+             double totalSalaryTeamofWeek = totalSalaryWeekofCoachofWeek + totalSalaryWeekofPlayerofWeek;
+            int percentWeek1 = (int) ((totalSalaryTeamofWeek/totalSalaryTeam) *100);
+
+            PreparedStatement st4 = connection.prepareStatement(SELECT_TOTALSALARY_COACH_OFWEEK);
+            st4.setInt(1,week2);
+            ResultSet rs4 = st4.executeQuery();
+            double totalSalaryWeekofCoachofWeek2 =0;
+            while (rs4.next()){
+                totalSalaryWeekofCoachofWeek2 = rs4.getDouble("totalSalaryWeekofCoachofWeek");
+            }
+            PreparedStatement st5 = connection.prepareStatement(SELECT_TOTALSALARY_PLAYER_OFWEEK);
+            st5.setInt(1,week2);
+            ResultSet rs5 = st5.executeQuery();
+            double totalSalaryWeekofPlayerofWeek2 =0;
+            while(rs5.next()){
+                totalSalaryWeekofPlayerofWeek2 = rs5.getDouble("totalSalaryWeekofPlayerofWeek");
+            }
+            double totalSalaryTeamofWeek2 = totalSalaryWeekofCoachofWeek2 + totalSalaryWeekofPlayerofWeek2;
+            int percentWeek2 = (int) ((totalSalaryTeamofWeek2/totalSalaryTeam) *100);
+
+            PreparedStatement st6 = connection.prepareStatement(SELECT_TOTALSALARY_COACH_OFWEEK);
+            st6.setInt(1,week3);
+            ResultSet rs6 = st6.executeQuery();
+            double totalSalaryWeekofCoachofWeek3 =0;
+            while (rs6.next()){
+                totalSalaryWeekofCoachofWeek3 = rs6.getDouble("totalSalaryWeekofCoachofWeek");
+            }
+            PreparedStatement st7 = connection.prepareStatement(SELECT_TOTALSALARY_PLAYER_OFWEEK);
+            st7.setInt(1,week3);
+            ResultSet rs7 = st7.executeQuery();
+            double totalSalaryWeekofPlayerofWeek3 =0;
+            while(rs7.next()){
+                totalSalaryWeekofPlayerofWeek3 = rs7.getDouble("totalSalaryWeekofPlayerofWeek");
+            }
+            double totalSalaryTeamofWeek3 = totalSalaryWeekofCoachofWeek3 + totalSalaryWeekofPlayerofWeek3;
+            int percentWeek3 = (int) ((totalSalaryTeamofWeek3/totalSalaryTeam) *100);
+
+
+            PreparedStatement st8 = connection.prepareStatement(SELECT_TOTALSALARY_COACH_OFWEEK);
+            st8.setInt(1,week4);
+            ResultSet rs8 = st8.executeQuery();
+            double totalSalaryWeekofCoachofWeek4 =0;
+            while (rs8.next()){
+                totalSalaryWeekofCoachofWeek4 = rs8.getDouble("totalSalaryWeekofCoachofWeek");
+            }
+            PreparedStatement st9 = connection.prepareStatement(SELECT_TOTALSALARY_PLAYER_OFWEEK);
+            st9.setInt(1,week4);
+            ResultSet rs9 = st9.executeQuery();
+            double totalSalaryWeekofPlayerofWeek4 =0;
+            while(rs3.next()){
+                totalSalaryWeekofPlayerofWeek4 = rs9.getDouble("totalSalaryWeekofPlayerofWeek");
+            }
+            double totalSalaryTeamofWeek4 = totalSalaryWeekofCoachofWeek4 + totalSalaryWeekofPlayerofWeek4;
+            int percentWeek4 = (int) ((totalSalaryTeamofWeek4/totalSalaryTeam) *100);
+
+            chartList.add( new Chart(percentWeek1,week1, totalSalaryTeamofWeek));
+            chartList.add( new Chart(percentWeek2,week2, totalSalaryTeamofWeek2));
+            chartList.add( new Chart(percentWeek3,week3, totalSalaryTeamofWeek3));
+            chartList.add( new Chart(percentWeek4,week4, totalSalaryTeamofWeek4));
+            return chartList;
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+
+    }
+
 }

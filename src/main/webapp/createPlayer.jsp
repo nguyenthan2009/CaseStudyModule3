@@ -79,10 +79,6 @@
         </div>
         <div class="form">
             <div class="form-group">
-               <label for="position">Position</label>
-              <input type="text" class="form-control" id="position" placeholder="Enter position" name="position">
-            </div>
-            <div class="form-group">
                 <label for="status">Status</label>
                 <input type="text" class="form-control" id="status" placeholder="Enter status" name="status">
             </div>
@@ -106,6 +102,16 @@
                 <label for="formIndex">formIndex</label>
                 <input type="text" class="form-control" id="formIndex" placeholder="Enter formIndex" name="formIndex">
             </div>
+            <div class="form-group">
+                <label for="position">Position</label>
+                <select id="position" name="position">
+                    <option value="Tien dao">Tien dao</option>
+                    <option value="Tien ve">Tien ve</option>
+                    <option value="Trung ve">Trung ve</option>
+                    <option value="Hau ve">Hau ve</option>
+                    <option value="Thu mon">Thu mon</option>
+                </select>
+            </div>
         </div>
         <button type="Add" class="btn btn-default">Submit</button>
     </form>
@@ -117,13 +123,19 @@
                 email: {
                     required: true
                 },
-                password: "required",
+                password: {
+                    required: true,
+                    minlength: 6
+                }
             },
             messages: {
                 email: {
                     required: "The email is required!",
                 },
-                password: "Please enter password"
+                password: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 6 characters long"
+                },
             }
         });
     });

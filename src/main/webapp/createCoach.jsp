@@ -17,7 +17,7 @@
       padding-top: 100px;
     }
     h2{
-      padding-left: 130px;
+      padding-left: 30px;
       color: chocolate;
     }
     .btn{
@@ -68,11 +68,13 @@
       <label for="salary">Salary</label>
       <input type="text" class="form-control" id="salary" placeholder="Enter salary" name="salary">
     </div>
+    <div class="form-group">
+    <label for="week">Role</label>
     <select id="week" name="role">
-      <label for="week">Role</label>
-      <option value="player">Player</option>
-      <option value="coach">Coach</option>
+       <option value="player">Player</option>
+       <option value="coach">Coach</option>
     </select>
+    </div>
 
 
     <button type="Add" class="btn btn-default">Submit</button>
@@ -85,13 +87,19 @@
         email: {
           required: true
         },
-        password: "required",
+        password: {
+          required: true,
+          minlength: 6
+        }
       },
       messages: {
         email: {
           required: "The email is required!",
         },
-        password: "Please enter password"
+        password: {
+          required: "Please provide a password",
+          minlength: "Your password must be at least 6 characters long"
+        },
       }
     });
   });

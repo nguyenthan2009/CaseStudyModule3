@@ -5,19 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecd3f3b0-4d53-4981-be0f-458bc6d29d81" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ListSalaryWeekOfPlayer.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/createCoach.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/createPlayer.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/weekSalaryofPlayer.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/weekofCoach.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/weekofPlayer.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Chart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/ListSalaryWeekOfCoach.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Test.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/salaryChartofTeeam.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/weekSaralyofPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/weekSaralyofPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/weekSalaryofCoach.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/weekSalaryofCoach.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/admin/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/admin/AdminService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/admin/IAdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/admin/IAdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/createCoach.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/createCoach.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/createPlayer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/createPlayer.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/weekSalaryofPlayer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/weekSalaryofPlayer.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,9 +44,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="jsf" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -84,7 +85,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../demoDuAn-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -296,7 +297,13 @@
       <workItem from="1630637893239" duration="3340000" />
       <workItem from="1630650974793" duration="65000" />
       <workItem from="1630651512553" duration="3147000" />
-      <workItem from="1630654748705" duration="6767000" />
+      <workItem from="1630654748705" duration="7189000" />
+      <workItem from="1630662008089" duration="1543000" />
+      <workItem from="1630671036195" duration="7204000" />
+      <workItem from="1630679891241" duration="2140000" />
+      <workItem from="1630684287257" duration="2166000" />
+      <workItem from="1630726331253" duration="5541000" />
+      <workItem from="1630733534667" duration="12851000" />
     </task>
     <servers />
   </component>
@@ -328,7 +335,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/CaseStudyModule3$Tomcat_9_0_52.ic" NAME="Tomcat 9.0.52 Coverage Results" MODIFIED="1630413062760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/CaseStudyModule3$Tomcat_9_0_52.ic" NAME="Tomcat 9.0.52 Coverage Results" MODIFIED="1630661540906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/CaseStudyModule3$CaseStudyModule3__dependencies_.ic" NAME="CaseStudyModule3 [dependencies] Coverage Results" MODIFIED="1630417143338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

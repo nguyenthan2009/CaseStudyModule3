@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action="post">
+<form method="post" >
  <div class="form-group">
     <label for="week"> Week</label>
         <input type="number" class="form-control" id="week" placeholder="Enter bonus" name="week">
