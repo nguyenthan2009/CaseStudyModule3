@@ -21,8 +21,7 @@ public class AdminService implements IAdminService {
     @Override
     public List<Coach> findAll() {
         List<Coach> coachList = new ArrayList<>();
-        try (
-                PreparedStatement st =connection.prepareStatement(SELECT_ALL_COACH)){
+        try (PreparedStatement st =connection.prepareStatement(SELECT_ALL_COACH)){
             ResultSet rs = st.executeQuery();
             while (rs.next()){
                 int id = rs.getInt("id");

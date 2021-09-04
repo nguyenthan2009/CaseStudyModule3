@@ -1,3 +1,4 @@
+create database footballmanager;
 use footballmanager;
 create table user(
                      id int auto_increment primary key ,
@@ -63,3 +64,4 @@ create table weekofCoach(
 SELECT * FROM footballmanager.weekofplayer;
 select player.namePlayer ,week,(player.salary+ preformedSalary*playtimeofWeek+bonus) as salaryofWeek from player join weekofplayer on player.id= weekofplayer.id_player where id_player = 1  group by weekofplayer.week;
 select coach.nameCoach, week,( coach.salary + bonus) as salaryofWeek from coach join weekofcoach on coach.id = weekofcoach.id_coach where id_coach= 1 group by weekofcoach.week;
+

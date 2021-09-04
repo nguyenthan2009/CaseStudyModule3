@@ -27,7 +27,6 @@ public class UserController extends HttpServlet {
         }
         switch (action) {
             case "create":
-
                 break;
             case "edit":
                 break;
@@ -35,8 +34,6 @@ public class UserController extends HttpServlet {
                 break;
             default:
                 showformLogin(req,resp);
-
-
         }
     }
     @Override
@@ -55,8 +52,6 @@ public class UserController extends HttpServlet {
                 break;
             default:
                login(req,resp);
-
-
         }
     }
     public void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -83,7 +78,4 @@ public class UserController extends HttpServlet {
         RequestDispatcher dispatcher = req.getRequestDispatcher("login.jsp");
         dispatcher.forward(req, resp);
     }
-
-
-
 }
