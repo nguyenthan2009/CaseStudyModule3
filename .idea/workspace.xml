@@ -5,20 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecd3f3b0-4d53-4981-be0f-458bc6d29d81" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Chart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ListSalaryWeekOfCoach.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Test.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/salaryChartofTeeam.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/salaryChartofCoach.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/updatePlayerInfo.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/weekSalaryofCoach.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/weekSalaryofCoach.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/playerStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/playerStats.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/admin/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/admin/AdminService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/admin/IAdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/admin/IAdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/createCoach.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/createCoach.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/createPlayer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/createPlayer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/weekSalaryofPlayer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/weekSalaryofPlayer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Test.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Test.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/salaryChartofTeeam.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/salaryChartofTeeam.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +41,8 @@
       <list>
         <option value="Interface" />
         <option value="jsf" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -85,7 +81,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../webDatabase" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -96,15 +92,13 @@
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.52">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -303,7 +297,12 @@
       <workItem from="1630679891241" duration="2140000" />
       <workItem from="1630684287257" duration="2166000" />
       <workItem from="1630726331253" duration="5541000" />
-      <workItem from="1630733534667" duration="12851000" />
+      <workItem from="1630733534667" duration="15897000" />
+      <workItem from="1630751643344" duration="59000" />
+      <workItem from="1630753939977" duration="299000" />
+      <workItem from="1630760638538" duration="5856000" />
+      <workItem from="1630810929311" duration="697000" />
+      <workItem from="1630811656130" duration="13007000" />
     </task>
     <servers />
   </component>
@@ -333,6 +332,27 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/Test.jsp</url>
+          <line>63</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/service/admin/AdminService.java</url>
+          <line>516</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/service/admin/AdminService.java</url>
+          <line>543</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CaseStudyModule3$Tomcat_9_0_52.ic" NAME="Tomcat 9.0.52 Coverage Results" MODIFIED="1630661540906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

@@ -46,10 +46,19 @@ public class AdminController extends HttpServlet {
             case  "listCoach":
                 showAllCoach(req, resp);
                 break;
-            case "Test":
-                showListSalaryWeekofPlayer1(req,resp);
+            case "ChartofTeam":
+                chartofTeam(req,resp);
+                break;
+            case "ChartofCoach":
+                chartofCoach(req,resp);
+                break;
+
+            case "updatePlayerInfo":
+                showUpdatePlayerInfo(req,resp);
+                break;
             default:
                 showAllPlayer(req, resp);
+                break;
 
         }
     }
@@ -122,6 +131,9 @@ public class AdminController extends HttpServlet {
                 break;
             case "salaryWeekofCoach":
                 showListSalaryWeekofCoach(req,resp);
+                break;
+            case "updatePlayerInfo":
+                UpdatePlayerInfo(req,resp);
                 break;
 
 
@@ -285,9 +297,11 @@ public class AdminController extends HttpServlet {
             e.printStackTrace();
         }
     }
-    public void showListSalaryWeekofPlayer1(HttpServletRequest req, HttpServletResponse resp){
+    public void chartofTeam(HttpServletRequest req, HttpServletResponse resp){
         List<Chart> chartList = service.chartofTeam(1,2,3,4);
         req.setAttribute("chartList",chartList);
+        double total = service.totalSalaryTeam();
+        req.setAttribute("total",total);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/salaryChartofTeeam.jsp");
         try {
             requestDispatcher.forward(req,resp);
@@ -297,5 +311,60 @@ public class AdminController extends HttpServlet {
             e.printStackTrace();
         }
     }
+    private void chartofCoach(HttpServletRequest req, HttpServletResponse resp){
+        List<Chart> chartList = service.chartofCoach(1,2,3,4);
+        req.setAttribute("chartList",chartList);
+        double total = service.totalSalaryCoach();
+        req.setAttribute("total",total);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/salaryChartofCoach.jsp");
+        try {
+            requestDispatcher.forward(req,resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    private void showUpdatePlayerInfo(HttpServletRequest req, HttpServletResponse resp) {
+//        int id = Integer.parseInt(req.getParameter("id"));
+        int id = 1;
+        Player existingPlayer =service.getPlayerByID(id);
+        req.setAttribute("player", existingPlayer);
+        playerStats playerStats = service.getPlayerStatsByID(id);
+        req.setAttribute("playerStats", playerStats);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/updatePlayerInfo.jsp");
+        try {
+            dispatcher.forward(req,resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void UpdatePlayerInfo(HttpServletRequest req, HttpServletResponse resp) {
+        String namePlayer = req.getParameter("namePlayer");
+        int bornYear = Integer.parseInt(req.getParameter("bornYear"));
+        String address = req.getParameter("address");
+        String position = req.getParameter("position");
+        double salary = Double.parseDouble(req.getParameter("salary"));
+        String status = req.getParameter("status");
+        String image = req.getParameter("image");
+        double height = Double.parseDouble(req.getParameter("height"));
+        double weight = Double.parseDouble(req.getParameter("weight"));
+        double bmiIndex = Double.parseDouble(req.getParameter("bmiIndex"));
+        int formIndex = Integer.parseInt(req.getParameter("formIndex"));
+
+        service.updatePlayer(namePlayer, bornYear, address, position, salary, status, image, height, weight, bmiIndex, formIndex);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/updatePlayerInfo.jsp");
+        try {
+            dispatcher.forward(req, resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

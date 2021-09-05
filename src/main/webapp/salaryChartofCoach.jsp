@@ -11,43 +11,43 @@
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <title>Title</title>
-<style>
-    .chart-layout{
-        margin :36px auto 0 auto;
-        padding : 32px 0;
-        height: 320px;
-        background-color: #fff;
-        display: flex;
-        align-items: flex-end;
-    }
-    .chart_layout_item{
-        width: 90px;
-        color: #fff;
-        text-align: center;
-        background-color: green;
-        height: var(--percent);
+    <style>
+        .chart-layout{
+            margin :36px auto 0 auto;
+            padding : 32px 0;
+            height: 320px;
+            background-color: #fff;
+            display: flex;
+            align-items: flex-end;
+        }
+        .chart_layout_item{
+            width: 90px;
+            color: #fff;
+            text-align: center;
+            background-color: green;
+            height: var(--percent);
 
-    }
-    .chart_layout_item1{
-        width: 90px;
-        color: #fff;
-        text-align: center;
-        background-color: green;
-        height: var(--percent);
-        margin-left: 32px;
-    }
-    .clounm{
-        margin-left: 50px;
-    }
-    h1{
-        padding-left: 200px;
-        color: chocolate;
-    }
+        }
+        .chart_layout_item1{
+            width: 90px;
+            color: #fff;
+            text-align: center;
+            background-color: green;
+            height: var(--percent);
+            margin-left: 32px;
+        }
+        .clounm{
+            margin-left: 50px;
+        }
+        h1{
+            padding-left: 200px;
+            color: chocolate;
+        }
 
-</style>
+    </style>
 </head>
 <body>
-<h1>Chart SalaryOfTeam</h1>
+<h1>Chart SalaryOfCoach</h1>
 <div class ="chart-layout">
     <c:forEach var="chartList" items="${chartList}">
         <div class="clounm">
@@ -60,6 +60,6 @@
 </div>
 
 </script>
-
 </body>
 </html>
+

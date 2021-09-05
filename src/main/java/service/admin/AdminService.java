@@ -30,6 +30,18 @@ public class AdminService implements IAdminService {
     public static final String SELECT_TOTALSALARY_COACH_OFWEEK = "select sum(coach.salary + bonus) as totalSalaryWeekofCoachofWeek from  coach join weekofcoach on coach.id = weekofcoach.id_coach where week= ?;";
     public static final String SELECT_TOTALSALARY_PLAYER_OFWEEK ="select sum(player.salary+ preformedSalary*playtimeofWeek+bonus) as totalSalaryWeekofPlayerofWeek from player join weekofplayer on player.id= weekofplayer.id_player where week =? ;";
     public static final  String SELECT_ALL_PLAYER = "select*from player;";
+    public static final String UPDATE_PLAYER_SQL = "update player set namePlayer  = ?,bornYear= ?, address =?, position = ?, salary = ?, status = ?, image =?  where id = ?;";
+    public static final String UPDATE_PLAYERSTATS_SQL = "update playerstats set height = ?, set weight = ?, set bmiIndex = ?, set formIndex = ? where id_player = ?; ";
+    public static final String UPDATE_WEEK_OF_PLAYER_SQL = "update weekofplayer set bonus = ? where id_player = ? ;";
+    public static final String SELECT_ID_USER_FROM_PLAYER_BY_NAME = "select id_user from player where namePlayer = ?";
+    public static final String DELETE_FROM_USER = "delete from user where id = ?;";
+    public static final String DELETE_FROM_PLAYER = "delete from player where id =?";
+    public static final String DELETE_FROM_PLAYERSTATS = "delete from playerstats where id_player = ?";
+    public static final String DELETE_FROM_WEEKOFPLAYER = "delete from weekofplayer where id_player = ?";
+
+    public static final String GET_PLAYERSTATS_BY_ID_PLAYER = "select * from playerStats where id_player = ?;";
+    public static final String GET_PLAYER_BY_ID = "select*from player where id = ?;";
+
     @Override
     public List<Coach> findAll() {
         List<Coach> coachList = new ArrayList<>();
@@ -338,7 +350,7 @@ public class AdminService implements IAdminService {
             st9.setInt(1,week4);
             ResultSet rs9 = st9.executeQuery();
             double totalSalaryWeekofPlayerofWeek4 =0;
-            while(rs3.next()){
+            while(rs9.next()){
                 totalSalaryWeekofPlayerofWeek4 = rs9.getDouble("totalSalaryWeekofPlayerofWeek");
             }
             double totalSalaryTeamofWeek4 = totalSalaryWeekofCoachofWeek4 + totalSalaryWeekofPlayerofWeek4;
@@ -358,4 +370,186 @@ public class AdminService implements IAdminService {
 
     }
 
+    @Override
+    public List<Chart> chartofCoach(int week1, int week2, int week3, int week4) {
+        List<Chart> chartList = new ArrayList<>();
+        try {
+            PreparedStatement st = connection.prepareStatement(SELECT_TOTALSALARYOF_COACH_OFALLWEEK );
+            ResultSet rs = st.executeQuery();
+            double totalSalaryWeekofCoach =0;
+            while(rs.next()){
+                totalSalaryWeekofCoach = rs.getDouble("totalSalaryWeekofCoach");
+            }
+            PreparedStatement st1 = connection.prepareStatement(SELECT_TOTALSALARY_COACH_OFWEEK);
+            st1.setInt(1,week1);
+            ResultSet rs1 = st1.executeQuery();
+            double totalSalaryWeekofCoachofWeek1 =0;
+            while (rs1.next()){
+                totalSalaryWeekofCoachofWeek1 = rs1.getDouble("totalSalaryWeekofCoachofWeek");
+            }
+            int percent = (int) ((totalSalaryWeekofCoachofWeek1/totalSalaryWeekofCoach)*100);
+
+            PreparedStatement st2 = connection.prepareStatement(SELECT_TOTALSALARY_COACH_OFWEEK);
+            st2.setInt(1,week2);
+            ResultSet rs2 = st2.executeQuery();
+            double totalSalaryWeekofCoachofWeek2 =0;
+            while (rs2.next()){
+                totalSalaryWeekofCoachofWeek2 = rs2.getDouble("totalSalaryWeekofCoachofWeek");
+            }
+            int percent2 = (int) ((totalSalaryWeekofCoachofWeek2/totalSalaryWeekofCoach)*100);
+
+            PreparedStatement st3 = connection.prepareStatement(SELECT_TOTALSALARY_COACH_OFWEEK);
+            st3.setInt(1,week3);
+            ResultSet rs3 = st3.executeQuery();
+            double totalSalaryWeekofCoachofWeek3 =0;
+            while (rs3.next()){
+                totalSalaryWeekofCoachofWeek3 = rs3.getDouble("totalSalaryWeekofCoachofWeek");
+            }
+            int percent3 = (int) ((totalSalaryWeekofCoachofWeek3/totalSalaryWeekofCoach)*100);
+
+            PreparedStatement st4 = connection.prepareStatement(SELECT_TOTALSALARY_COACH_OFWEEK);
+            st4.setInt(1,week4);
+            ResultSet rs4 = st4.executeQuery();
+            double totalSalaryWeekofCoachofWeek4 =0;
+            while (rs4.next()){
+                totalSalaryWeekofCoachofWeek4 = rs4.getDouble("totalSalaryWeekofCoachofWeek");
+            }
+            int percent4 = (int) ((totalSalaryWeekofCoachofWeek4/totalSalaryWeekofCoach)*100);
+            chartList.add(new Chart(percent,week1,totalSalaryWeekofCoachofWeek1));
+            chartList.add(new Chart(percent2,week2,totalSalaryWeekofCoachofWeek2));
+            chartList.add(new Chart(percent3,week3,totalSalaryWeekofCoachofWeek3));
+            chartList.add(new Chart(percent4,week4,totalSalaryWeekofCoachofWeek4));
+            return chartList;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return  null;
+
+    }
+
+    @Override
+    public double totalSalaryTeam() {
+        try {
+            PreparedStatement st = connection.prepareStatement( SELECT_TOTALSALARYOF_PLAYER_OFALLWEEK);
+            ResultSet rs = st.executeQuery();
+            double totalSalaryWeekofPlayer =0;
+            while (rs.next()){
+                totalSalaryWeekofPlayer = rs.getDouble("totalSalaryWeekofPlayer");
+            }
+            PreparedStatement st1 = connection.prepareStatement(SELECT_TOTALSALARYOF_COACH_OFALLWEEK );
+            ResultSet rs1 = st1.executeQuery();
+            double totalSalaryWeekofCoach =0;
+            while(rs1.next()){
+                totalSalaryWeekofCoach = rs1.getDouble("totalSalaryWeekofCoach");
+            }
+            double totalSalaryTeam = totalSalaryWeekofPlayer +  totalSalaryWeekofCoach;
+            return totalSalaryTeam;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return 0;
+    }
+
+    @Override
+    public double totalSalaryCoach() {
+        try {
+            PreparedStatement st1 = connection.prepareStatement(SELECT_TOTALSALARYOF_COACH_OFALLWEEK );
+            ResultSet rs1 = st1.executeQuery();
+            double totalSalaryWeekofCoach =0;
+            while(rs1.next()){
+                totalSalaryWeekofCoach = rs1.getDouble("totalSalaryWeekofCoach");
+            }
+            return  totalSalaryWeekofCoach;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return 0;
+    }
+
+    @Override
+    public Player getPlayerByID(int id) {
+        Player player = null;
+        try {
+            PreparedStatement statement = connection.prepareStatement(GET_PLAYER_BY_ID);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                String namePlayer = rs.getString("namePlayer");
+                int bornYear = rs.getInt("bornYear");
+                String address = rs.getString("address");
+                String position = rs.getString("position");
+                int salary = rs.getInt("salary");
+                String status = rs.getString("status");
+                String image = rs.getString("image");
+
+                player = new Player(namePlayer, bornYear, address, position, salary, status, image);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return player;
+    }
+
+    @Override
+    public playerStats getPlayerStatsByID(int id_player) {
+        playerStats playerStats = null;
+        try {
+            PreparedStatement statement = connection.prepareStatement(GET_PLAYERSTATS_BY_ID_PLAYER);
+            statement.setInt(1, id_player);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                double height = rs.getDouble("height");
+                double weight = rs.getDouble("weight");
+                double bmiIndex = rs.getDouble("bmiIndex");
+                int formIndex = rs.getInt("formIndex");
+
+                playerStats = new playerStats(height, weight, bmiIndex, formIndex);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return playerStats;
+    }
+    @Override
+    public void updatePlayer(String namePlayer, int bornYear, String address, String position, double salary, String status, String image, double height, double weight, double bmiIndex, int formIndex) {
+        try {
+            connection.setAutoCommit(false);
+            PreparedStatement statement = connection.prepareStatement(SELECT_ID_PLAYERBYNAME);
+            statement.setString(1, namePlayer);
+            ResultSet resultSet = statement.executeQuery();
+            int id_player = 0;
+            while (resultSet.next()) {
+                id_player = resultSet.getInt("id");
+            }
+            PreparedStatement statement1 = connection.prepareStatement(UPDATE_PLAYER_SQL);
+            statement1.setString(1, namePlayer);
+            statement1.setInt(2, bornYear);
+            statement1.setString(3, address);
+            statement1.setString(4, position);
+            statement1.setDouble(5, salary);
+            statement1.setString(6, status);
+            statement1.setString(7, image);
+            statement1.setInt(8, id_player);
+            statement1.executeUpdate();
+
+            PreparedStatement statement2 = connection.prepareStatement(UPDATE_PLAYERSTATS_SQL);
+            statement2.setDouble(1, height);
+            statement2.setDouble(2, weight);
+            statement2.setDouble(3, bmiIndex);
+            statement2.setInt(4, formIndex);
+            statement2.setInt(5, id_player);
+            statement2.executeUpdate();
+
+            connection.commit();
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+
+
 }
+

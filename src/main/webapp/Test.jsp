@@ -62,7 +62,6 @@
     <script src="js/jquery-1.11.1.min.js"></script>
 </head>
 <body>
-<c:forEach var="listPlayer1" items="${listPlayer}">
 <div class="container">
     <h3> Sản phẩm nổi bật</h3>
     <div class="well well-sm text-right"> <strong>Chọn kiểu hiển thị</strong>
@@ -70,8 +69,9 @@
         </div>
     </div>
     <div id="products" class="row list-group">
+        <c:forEach var="listPlayer1" items="${listPlayer}">
         <div class="item  col-xs-3 col-lg-3">
-            <div class="thumbnail"> <img class="group list-group-image" src="${listPlayer1.image}" alt="Sản phẩm 1" width="300">
+            <div class="thumbnail"> <img class="group list-group-image" src="${listPlayer1.image}" alt="Sản phẩm 1" width="300" height="400">
                 <div class="caption">
                     <h4 class="group inner list-group-item-heading">${listPlayer1.namePlayer} </h4>
                     <p class="group inner list-group-item-text"> Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
@@ -85,114 +85,10 @@
                 </div>
             </div>
         </div>
-        <div class="item  col-xs-3 col-lg-3">
-            <div class="thumbnail"> <img class="group list-group-image" src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/product/images/2.jpg" alt="Sản phẩm 2" width="300">
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading"> Sản phẩm 2</h4>
-                    <p class="group inner list-group-item-text"> Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead"> 200.000 đ</p>
-                        </div>
-                        <div class="col-xs-12 col-md-6"> <a class="btn btn-success" href="http://hocwebgiare.com/">Chi tiết</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item  col-xs-3 col-lg-3">
-            <div class="thumbnail"> <img class="group list-group-image" src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/product/images/3.jpg" alt="Sản phẩm 3" width="300">
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading"> Sản phẩm 3</h4>
-                    <p class="group inner list-group-item-text"> Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead"> 200.000 đ</p>
-                        </div>
-                        <div class="col-xs-12 col-md-6"> <a class="btn btn-success" href="http://hocwebgiare.com/">Chi tiết</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item  col-xs-3 col-lg-3">
-            <div class="thumbnail"> <img class="group list-group-image" src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/product/images/4.jpg" alt="Sản phẩm 4" width="300">
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading"> Sản phẩm 4</h4>
-                    <p class="group inner list-group-item-text"> Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,  sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead"> 200.000 đ</p>
-                        </div>
-                        <div class="col-xs-12 col-md-6"> <a class="btn btn-success" href="http://hocwebgiare.com/">Chi tiết</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item  col-xs-3 col-lg-3">
-            <div class="thumbnail"> <img class="group list-group-image" src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/product/images/5.jpg" alt="Sản phẩm 5" width="300">
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading"> Sản phẩm 5</h4>
-                    <p class="group inner list-group-item-text"> Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,  sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead"> 200.000 đ</p>
-                        </div>
-                        <div class="col-xs-12 col-md-6"> <a class="btn btn-success" href="http://hocwebgiare.com/">Chi tiết</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item  col-xs-3 col-lg-3">
-            <div class="thumbnail"> <img class="group list-group-image" src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/product/images/6.jpg" alt="Sản phẩm 6" width="300">
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading"> Sản phẩm 6</h4>
-                    <p class="group inner list-group-item-text"> Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead">200.000 đ</p>
-                        </div>
-                        <div class="col-xs-12 col-md-6"> <a class="btn btn-success" href="http://hocwebgiare.com/">Chi tiết</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item  col-xs-3 col-lg-3">
-            <div class="thumbnail"> <img class="group list-group-image" src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/product/images/7.jpg" alt="Sản phẩm 7" width="300">
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading"> Sản phẩm 7</h4>
-                    <p class="group inner list-group-item-text"> Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead">200.000 đ</p>
-                        </div>
-                        <div class="col-xs-12 col-md-6"> <a class="btn btn-success" href="http://hocwebgiare.com/">Chi tiết</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item  col-xs-3 col-lg-3">
-            <div class="thumbnail"> <img class="group list-group-image" src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/product/images/8.jpg" alt="Sản phẩm 8" width="300">
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading"> Sản phẩm 8</h4>
-                    <p class="group inner list-group-item-text"> Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead">200.000 đ</p>
-                        </div>
-                        <div class="col-xs-12 col-md-6"> <a class="btn btn-success" href="http://hocwebgiare.com/">Chi tiết</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </c:forEach>
     </div>
 </div>
-</c:forEach>
+
 <script type="text/javascript">
     $(document).ready(function() {
         $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
