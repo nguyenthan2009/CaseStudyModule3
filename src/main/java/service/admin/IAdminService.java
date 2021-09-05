@@ -20,4 +20,5 @@ public interface IAdminService {
     Player getPlayerByID(int id);
     playerStats getPlayerStatsByID (int id);
     void updatePlayer (String namePlayer, int bornYear, String address, String position, double salary, String status, String image, double height, double weight, double bmiIndex, int formIndex );
+
 }

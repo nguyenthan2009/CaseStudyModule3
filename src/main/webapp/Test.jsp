@@ -17,6 +17,12 @@
     .glyphicon {
         margin-right:5px;
     }
+    h4{
+        text-align: center;
+    }
+   .btn {
+       margin-right: 30px;
+   }
     .thumbnail {
         margin-bottom: 20px;
         padding: 0px;
@@ -71,15 +77,14 @@
     <div id="products" class="row list-group">
         <c:forEach var="listPlayer1" items="${listPlayer}">
         <div class="item  col-xs-3 col-lg-3">
-            <div class="thumbnail"> <img class="group list-group-image" src="${listPlayer1.image}" alt="Sản phẩm 1" width="300" height="400">
+            <div class="thumbnail"> <img class="group list-group-image" src="${listPlayer1.image}" alt="Sản phẩm 1" style="width: 200px;height: 300px">
                 <div class="caption">
                     <h4 class="group inner list-group-item-heading">${listPlayer1.namePlayer} </h4>
-                    <p class="group inner list-group-item-text"> Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    <p class="group inner list-group-item-text"> </p>
                     <div class="row">
                         <div class="col-xs-12 col-md-6">
-                            <p class="lead"> 200.000 đ</p>
                         </div>
-                        <div class="col-xs-12 col-md-6"> <a class="btn btn-success" href="http://hocwebgiare.com/">Chi tiết</a>
+                        <div class="col-xs-12 col-md-6"> <a class="btn btn-success" href="admin?action=playerDetail&id=${listPlayer1.id}">Chi tiết</a>
                         </div>
                     </div>
                 </div>
