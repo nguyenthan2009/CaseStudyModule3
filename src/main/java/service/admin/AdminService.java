@@ -597,24 +597,6 @@ public class AdminService implements IAdminService {
 
     }
 
-    @Override
-    public weekSalaryofCoach WEEK_SALARYOF_COACH(int id) {
-        try {
-            weekSalaryofCoach weekSalaryofCoach = null;
-            PreparedStatement statement = connection.prepareStatement(SELECT_SALARYOFCOACH_BYID );
-            statement.setInt(1,id);
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()){
-                String nameCoach = resultSet.getString("nameCoach");
-                int week = resultSet.getInt("week");
-                double salaryofCoach = resultSet.getDouble("salaryofWeek");
-                 weekSalaryofCoach = new weekSalaryofCoach(nameCoach,week,salaryofCoach);
-            }
-            return weekSalaryofCoach;
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return null;
-    }
+
 }
 

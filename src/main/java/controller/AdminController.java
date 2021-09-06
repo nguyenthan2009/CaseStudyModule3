@@ -444,4 +444,21 @@ public class AdminController extends HttpServlet {
         }
         resp.sendRedirect(destPage);
     }
+
+    private void showPlayer(HttpServletRequest req, HttpServletResponse resp){
+        int id = Integer.parseInt(req.getParameter("id"));
+        Player existingPlayer =service.getPlayerByID(id);
+        req.setAttribute("player", existingPlayer);
+        playerStats playerStats = service.getPlayerStatsByID(id);
+        req.setAttribute("playerStats", playerStats);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("");
+        try {
+            dispatcher.forward(req,resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

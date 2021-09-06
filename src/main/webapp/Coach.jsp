@@ -35,7 +35,8 @@
 </head>
 <body>
 <div class="head">
-    <a href="coach?action=salaryofCoach&id=${user.id}">Xem lương Coach</a>
+    <a href="coach?action=coachdetail&id=${user.id}">Xem lương Coach</a>
+    <a href=""></a>
 </div>
 <div class="body">
     <div class="container">

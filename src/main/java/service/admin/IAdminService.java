@@ -23,8 +23,6 @@ public interface IAdminService {
 
     void deletePlayer (int id );
 
-    weekSalaryofCoach WEEK_SALARYOF_COACH(int id);
-
 
 
 }

@@ -2,19 +2,13 @@ package service.coach;
 
 import model.Coach;
 import model.Player;
+import model.weekSalaryofCoach;
 
 import java.util.List;
 
 public interface ICoachService {
-    List<Coach> findAll();
-
-    void save(Coach coach);
-
-    void update(int id, Coach coach);
-
-    void remove(int id);
-
-    Coach findById(int id);
+   List<weekSalaryofCoach> WEEK_SALARYOF_COACH(int id_user);
+    Coach coachdetail(int id_user);
 
 
 }

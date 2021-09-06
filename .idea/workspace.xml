@@ -5,22 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecd3f3b0-4d53-4981-be0f-458bc6d29d81" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Coach.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/playerList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/coachdetail.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/CoachController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CoachController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/weekSalaryofCoach.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/weekSalaryofCoach.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/admin/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/admin/AdminService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/admin/IAdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/admin/IAdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/user/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Test.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Test.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/weekSalaryofPlayer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/weekSalaryofPlayer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/weekofCoach.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/weekofCoach.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/weekofPlayer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/weekofPlayer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/coach/CoachService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/coach/CoachService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/coach/ICoachService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/coach/ICoachService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Coach.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Coach.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,6 +93,19 @@
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.52">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CaseStudyModule3 [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -304,7 +310,7 @@
       <workItem from="1630854904970" duration="5115000" />
       <workItem from="1630863546211" duration="4041000" />
       <workItem from="1630888898347" duration="18543000" />
-      <workItem from="1630910376808" duration="2602000" />
+      <workItem from="1630910376808" duration="8444000" />
     </task>
     <servers />
   </component>
