@@ -2,6 +2,7 @@ package controller;
 
 import model.*;
 import service.admin.AdminService;
+import service.user.IUserService;
 import service.user.UserService;
 
 import javax.servlet.RequestDispatcher;
@@ -17,6 +18,7 @@ import java.util.List;
 @WebServlet(name = "AdminServlet", value = "/admin")
 public class AdminController extends HttpServlet {
     private AdminService service = new AdminService();
+    private  UserService userService = new UserService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -46,6 +48,9 @@ public class AdminController extends HttpServlet {
             case  "listCoach":
                 showAllCoach(req, resp);
                 break;
+            case "listPlayer":
+                showAllListPlayer(req,resp);
+                break;
             case "ChartofTeam":
                 chartofTeam(req,resp);
                 break;
@@ -56,6 +61,13 @@ public class AdminController extends HttpServlet {
             case "updatePlayerInfo":
                 showUpdatePlayerInfo(req,resp);
                 break;
+            case "deletePlayer" :
+                deletePlayer(req,resp);
+                break;
+            case "login":
+                showformLogin(req,resp);
+                break;
+
             default:
                 showAllPlayer(req, resp);
                 break;
@@ -135,6 +147,9 @@ public class AdminController extends HttpServlet {
             case "updatePlayerInfo":
                 UpdatePlayerInfo(req,resp);
                 break;
+            case "login":
+                login(req,resp);
+                break;
 
 
             default:
@@ -162,6 +177,18 @@ public class AdminController extends HttpServlet {
         List<Coach> coachList = service.findAll();
         req.setAttribute("listCoach", coachList);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/coachList.jsp");
+        try {
+            dispatcher.forward(req, resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void showAllListPlayer(HttpServletRequest req, HttpServletResponse resp){
+        List<Player> playerList = service.findAllPlayer();
+        req.setAttribute("listPlayer", playerList);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/playerList.jsp");
         try {
             dispatcher.forward(req, resp);
         } catch (ServletException e) {
@@ -366,5 +393,55 @@ public class AdminController extends HttpServlet {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    private void deletePlayer(HttpServletRequest req, HttpServletResponse resp) {
+//        int id = Integer.parseInt(req.getParameter("id"));
+        int id = 5;
+        service.deletePlayer(id);
+
+        List<Player> playerList = service.findAllPlayer();
+        req.setAttribute("listPlayer",playerList);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/Test.jsp");
+        try {
+            requestDispatcher.forward(req,resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void showformLogin(HttpServletRequest req, HttpServletResponse resp){
+        RequestDispatcher dispatcher = req.getRequestDispatcher("login.jsp");
+        try {
+            dispatcher.forward(req, resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void login(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
+        String email = req.getParameter("email");
+        String password = req.getParameter("password");
+        IUserService userService = new UserService();
+        String destPage = "login.jsp";
+        user user = userService.findByEmailAndPassword(email,password);
+        String role = userService.roleUser(email);
+        if(user !=null && role.equals("player")){
+            destPage = "/players";
+        }if(user !=null && role.equals("coach")){
+            destPage = "/coach";
+        }if(user !=null && role.equals("admin")){
+            destPage = "/admin";
+        }else{
+            String message = "Invalid email/password";
+            req.setAttribute("message", message);
+
+            RequestDispatcher dispatcher = req.getRequestDispatcher(destPage);
+            dispatcher.forward(req, resp);
+
+        }
+        resp.sendRedirect(destPage);
     }
 }

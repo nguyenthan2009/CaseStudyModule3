@@ -31,16 +31,21 @@ public class AdminService implements IAdminService {
     public static final String SELECT_TOTALSALARY_PLAYER_OFWEEK ="select sum(player.salary+ preformedSalary*playtimeofWeek+bonus) as totalSalaryWeekofPlayerofWeek from player join weekofplayer on player.id= weekofplayer.id_player where week =? ;";
     public static final  String SELECT_ALL_PLAYER = "select*from player;";
     public static final String UPDATE_PLAYER_SQL = "update player set namePlayer  = ?,bornYear= ?, address =?, position = ?, salary = ?, status = ?, image =?  where id = ?;";
-    public static final String UPDATE_PLAYERSTATS_SQL = "update playerstats set height = ?, set weight = ?, set bmiIndex = ?, set formIndex = ? where id_player = ?; ";
+    public static final String UPDATE_PLAYERSTATS_SQL = "update playerstats set playerstats.height  =  ? , weight = ?  ,bmiIndex = ?, formIndex = ? where id_player = ?;";
     public static final String UPDATE_WEEK_OF_PLAYER_SQL = "update weekofplayer set bonus = ? where id_player = ? ;";
     public static final String SELECT_ID_USER_FROM_PLAYER_BY_NAME = "select id_user from player where namePlayer = ?";
-    public static final String DELETE_FROM_USER = "delete from user where id = ?;";
-    public static final String DELETE_FROM_PLAYER = "delete from player where id =?";
-    public static final String DELETE_FROM_PLAYERSTATS = "delete from playerstats where id_player = ?";
-    public static final String DELETE_FROM_WEEKOFPLAYER = "delete from weekofplayer where id_player = ?";
 
     public static final String GET_PLAYERSTATS_BY_ID_PLAYER = "select * from playerStats where id_player = ?;";
     public static final String GET_PLAYER_BY_ID = "select*from player where id = ?;";
+
+    public static final String DELETE_FROM_USER = "delete from user where id = ?;";
+    public static final String DELETE_FROM_PLAYER = "delete from player where id =?";
+    public static final String DELETE_FROM_PLAYERSTATS = "delete from playerstats where id_player = ?;";
+    public static final String DELETE_FROM_WEEKOFPLAYER = "delete from weekofplayer where id_player = ?;";
+    public static final String DELETE_FROM_ROLE = "delete from role where id = ?;";
+    public static  final String SELECT_ID_USER_FROM_PLAYER_BY_ID = "select id_user from player where id = ?;";
+
+    public static final String SELECT_SALARYOFCOACH_BYID = "select coach.nameCoach, week,( coach.salary + bonus) as salaryofWeek from coach join weekofcoach on coach.id = weekofcoach.id_coach where coach.id =?;";
 
     @Override
     public List<Coach> findAll() {
@@ -518,9 +523,9 @@ public class AdminService implements IAdminService {
             PreparedStatement statement = connection.prepareStatement(SELECT_ID_PLAYERBYNAME);
             statement.setString(1, namePlayer);
             ResultSet resultSet = statement.executeQuery();
-            int id_player = 0;
+              int id =0;
             while (resultSet.next()) {
-                id_player = resultSet.getInt("id");
+                id = resultSet.getInt("id");
             }
             PreparedStatement statement1 = connection.prepareStatement(UPDATE_PLAYER_SQL);
             statement1.setString(1, namePlayer);
@@ -530,7 +535,7 @@ public class AdminService implements IAdminService {
             statement1.setDouble(5, salary);
             statement1.setString(6, status);
             statement1.setString(7, image);
-            statement1.setInt(8, id_player);
+            statement1.setInt(8, id);
             statement1.executeUpdate();
 
             PreparedStatement statement2 = connection.prepareStatement(UPDATE_PLAYERSTATS_SQL);
@@ -538,7 +543,7 @@ public class AdminService implements IAdminService {
             statement2.setDouble(2, weight);
             statement2.setDouble(3, bmiIndex);
             statement2.setInt(4, formIndex);
-            statement2.setInt(5, id_player);
+            statement2.setInt(5, id);
             statement2.executeUpdate();
 
             connection.commit();
@@ -549,7 +554,67 @@ public class AdminService implements IAdminService {
         }
     }
 
+    @Override
+    public void deletePlayer(int id) {
+
+        try {
+            connection.setAutoCommit(false);
+            PreparedStatement statement = connection.prepareStatement(DELETE_FROM_WEEKOFPLAYER);
+            statement.setInt(1, id);
+            statement.executeUpdate();
+
+            PreparedStatement statement1 = connection.prepareStatement(DELETE_FROM_PLAYERSTATS);
+            statement1.setInt(1,id);
+            statement1.executeUpdate();
+
+            PreparedStatement statement2 = connection.prepareStatement(DELETE_FROM_PLAYER);
+            statement2.setInt(1,id);
+            statement2.executeUpdate();
+
+            PreparedStatement statement3 = connection.prepareStatement(SELECT_ID_USER_FROM_PLAYER_BY_ID);
+            statement3.setInt(1, id);
+            ResultSet rs = statement3.executeQuery();
+            int id_user = 0;
+            while (rs.next()) {
+                id_user = rs.getInt("id_user");
+            }
+
+            PreparedStatement statement4 = connection.prepareStatement(DELETE_FROM_ROLE);
+            statement4.setInt(1, id_user);
+            statement4.executeUpdate();
+
+            PreparedStatement statement5 = connection.prepareStatement(DELETE_FROM_USER);
+            statement5.setInt(1,id_user);
+            statement4.executeUpdate();
+
+            connection.commit();
 
 
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+
+    }
+
+    @Override
+    public weekSalaryofCoach WEEK_SALARYOF_COACH(int id) {
+        try {
+            weekSalaryofCoach weekSalaryofCoach = null;
+            PreparedStatement statement = connection.prepareStatement(SELECT_SALARYOFCOACH_BYID );
+            statement.setInt(1,id);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                String nameCoach = resultSet.getString("nameCoach");
+                int week = resultSet.getInt("week");
+                double salaryofCoach = resultSet.getDouble("salaryofWeek");
+                 weekSalaryofCoach = new weekSalaryofCoach(nameCoach,week,salaryofCoach);
+            }
+            return weekSalaryofCoach;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
 }
 

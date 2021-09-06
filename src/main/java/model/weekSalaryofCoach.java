@@ -44,4 +44,7 @@ public class weekSalaryofCoach {
     public void setWeekSaraly(double weekSaraly) {
         this.weekSalary = weekSaraly;
     }
+
+
+
 }

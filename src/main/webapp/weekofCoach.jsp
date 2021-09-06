@@ -17,7 +17,7 @@
             padding-top: 100px;
         }
         h2{
-            padding-left: 100px;
+            padding-left: 50px;
             color: chocolate;
         }
         .btn{

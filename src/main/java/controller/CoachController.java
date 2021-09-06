@@ -12,11 +12,30 @@ import java.io.IOException;
 public class CoachController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        String action = req.getParameter("action");
+        if (action == null) {
+            action = "";
+        }
+        switch (action) {
+            case "salaryofCoach":
+                salaryCoach(req,resp);
+                break;
+            case "newPlayer":
+            default:
+                pageCoach(req,resp);
+                break;
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+
+    }
+    private void salaryCoach(HttpServletRequest req, HttpServletResponse resp){
+        int id = Integer.parseInt(req.getParameter("id"));
+
+    }
+    private void pageCoach(HttpServletRequest req, HttpServletResponse resp){
+
     }
 }

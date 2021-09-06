@@ -21,4 +21,10 @@ public interface IAdminService {
     playerStats getPlayerStatsByID (int id);
     void updatePlayer (String namePlayer, int bornYear, String address, String position, double salary, String status, String image, double height, double weight, double bmiIndex, int formIndex );
 
+    void deletePlayer (int id );
+
+    weekSalaryofCoach WEEK_SALARYOF_COACH(int id);
+
+
+
 }
