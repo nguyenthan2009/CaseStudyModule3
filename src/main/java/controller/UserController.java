@@ -68,6 +68,9 @@ public class UserController extends HttpServlet {
           String role = userService.roleUser(email);
           if(user !=null && role.equals("player")){
               destPage = "/players";
+              req.setAttribute("user",user);
+              RequestDispatcher dispatcher = req.getRequestDispatcher("/Player.jsp");
+              dispatcher.forward(req,resp);
           }if(user !=null && role.equals("coach")){
               destPage = "/coach";
               req.setAttribute("user",user);
