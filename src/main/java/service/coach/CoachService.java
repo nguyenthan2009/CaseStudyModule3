@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CoachService implements ICoachService {
@@ -18,7 +19,7 @@ public class CoachService implements ICoachService {
     @Override
     public List<weekSalaryofCoach> WEEK_SALARYOF_COACH(int user_id) {
         try {
-           List <weekSalaryofCoach> listweekSalaryofCoach = null;
+           List <weekSalaryofCoach> listweekSalaryofCoach = new ArrayList<>();
             PreparedStatement statement = connection.prepareStatement(SELECT_SALARYOFCOACH_BYID );
             statement.setInt(1,user_id);
             ResultSet resultSet = statement.executeQuery();
@@ -26,7 +27,7 @@ public class CoachService implements ICoachService {
                 String nameCoach = resultSet.getString("nameCoach");
                 int week = resultSet.getInt("week");
                 double salaryofCoach = resultSet.getDouble("salaryofWeek");
-                weekSalaryofCoach  weekSalaryofCoach= new weekSalaryofCoach(nameCoach,week,salaryofCoach);
+                 weekSalaryofCoach weekSalaryofCoach= new weekSalaryofCoach(nameCoach,week,salaryofCoach);
                 listweekSalaryofCoach.add(weekSalaryofCoach);
             }
             return listweekSalaryofCoach;

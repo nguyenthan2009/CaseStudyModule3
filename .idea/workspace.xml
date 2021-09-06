@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecd3f3b0-4d53-4981-be0f-458bc6d29d81" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/coachdetail.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/CoachController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CoachController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/admin/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/admin/AdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/admin/IAdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/admin/IAdminService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/coach/CoachService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/coach/CoachService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/coach/ICoachService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/coach/ICoachService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Coach.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Coach.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/coachdetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/coachdetail.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,7 +304,7 @@
       <workItem from="1630854904970" duration="5115000" />
       <workItem from="1630863546211" duration="4041000" />
       <workItem from="1630888898347" duration="18543000" />
-      <workItem from="1630910376808" duration="8444000" />
+      <workItem from="1630910376808" duration="9630000" />
     </task>
     <servers />
   </component>

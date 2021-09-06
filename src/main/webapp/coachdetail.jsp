@@ -11,12 +11,15 @@
 <head>
     <title>Title</title>
     <style>
-        a{
-            display: flex;
+        .b{
+            float: left;
+            margin-left: 40px;
         }
     </style>
 </head>
 <body>
+<div class="a">
+    <div class="b">
    <table border="1" cellpadding="5">
      <caption><h2>Coach detail</h2></caption>
     <tr>
@@ -34,23 +37,27 @@
             <td>${coachdetail.salary}</td>
         </tr>
    </table>
-<%--    <table border="1" cellpadding="5">--%>
-<%--        <caption><h2>SalaryWeekofCoach</h2></caption>--%>
-<%--        <tr>--%>
-<%--            <th>NameCoach</th>--%>
-<%--            <th>Week</th>--%>
-<%--            <th>Salary</th>--%>
-<%--        </tr>--%>
+    </div>
+    <div class="b">
+    <table border="1" cellpadding="5">
+        <caption><h2>SalaryWeekofCoach</h2></caption>
+        <tr>
+            <th>NameCoach</th>
+            <th>Week</th>
+            <th>Salary</th>
+        </tr>
 
-<%--     <c:forEach var="salaryofWeek" items="${salaryofWeek}">--%>
-<%--        <tr>--%>
-<%--            <td>${salaryofWeek.nameCoach}</td>--%>
-<%--            <td>${salaryofWeek.week}</td>--%>
-<%--            <td>${salaryofWeek.weekSalary}</td>--%>
+     <c:forEach var="salaryofWeek" items="${salaryofWeek}">
+        <tr>
+            <td>${salaryofWeek.nameCoach}</td>
+            <td>${salaryofWeek.week}</td>
+            <td>${salaryofWeek.weekSalary}</td>
 
-<%--        </tr>--%>
-<%--     </c:forEach>--%>
-<%--    </table>--%>
+        </tr>
+     </c:forEach>
+    </table>
+    </div>
+</div>
 
 
 
