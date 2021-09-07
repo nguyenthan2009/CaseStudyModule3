@@ -72,6 +72,64 @@
         height: 50px;
         z-index: 1;
     }
+    .body{
+        margin-top: 46px;
+    }
+    li{
+        float: left;
+        display: inline-block;
+        padding-left: 30px;
+        text-decoration: none;
+    }
+    ul li a{
+        text-decoration: none;
+        color: white;
+        display: inline-block;
+        line-height: 50px;
+    }
+    li:hover a{
+        color: black;
+    }
+
+
+    a{
+        color:#f9398c;
+        text-decoration:none
+    }
+
+    a:hover,a:focus{
+        color:#f9398c;
+        text-decoration:underline
+    }
+
+    a:focus,
+    .btn:focus {
+        outline: none;
+    }
+    #nav3 li:hover .nav {
+        display: block;
+    }
+    .nav{
+        position: absolute;
+        background-color: #cccccc;
+        display: none;
+    }
+    .nav li {
+        display:block;
+        width: 100%;
+        text-align: center;
+        padding-right: 20px;
+        line-height: 5px;
+    }
+    #nav3  li{
+        position: relative;
+
+    }
+    #nav3 .nav li:hover{
+        color: black;
+        background-color: #ccc;
+    }
+
 
 
 
@@ -82,6 +140,21 @@
 
 </head>
 <body>
+<div class="head">
+        <ul id="nav3">
+            <li><a href="admin?action=listPlayer">Tìm kiếm theo tên</a></li>
+            <li><a href="admin?action=listCoach">Tìm kiếm theo khoảng lương</a> </li>
+            <li><a href="admin?action=salaryWeekofCoach">Tìm kiếm theo trạng thái</a>
+                <ul class="nav">
+                    <li><a href="admin?action=salaryWeekofCoach&week=1"> Đang chơi</a></li>
+                    <li><a href="admin?action=salaryWeekofCoach&week=2"> Chấn thương</a></li>
+                    <li><a href="admin?action=salaryWeekofCoach&week=3"> Đã nghỉ hưu</a></li>
+                </ul>
+            </li>
+        </ul>
+
+</div>
+<div class="body">
     <div class="container">
         <h3> Danh sách cầu thủ</h3>
         <div id="products" class="row list-group">
@@ -101,6 +174,7 @@
             </c:forEach>
         </div>
     </div>
+</div>
 
 <script type="text/javascript">
     $(document).ready(function() {

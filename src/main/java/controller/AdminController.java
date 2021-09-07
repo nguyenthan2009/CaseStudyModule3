@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Dictionary;
 import java.util.List;
@@ -40,10 +41,10 @@ public class AdminController extends HttpServlet {
                 showformWeekofPlayer(req,resp);
                 break;
             case "salaryWeekofPlayer":
-                formSalaryWeekOfPlayer(req,resp);
+                showListSalaryWeekofPlayer(req,resp);
                 break;
             case "salaryWeekofCoach":
-                formSalaryWeekOfCoach(req,resp);
+                showListSalaryWeekofCoach(req,resp);
                 break;
             case  "listCoach":
                 showAllCoach(req, resp);
@@ -142,12 +143,12 @@ public class AdminController extends HttpServlet {
             case "weekOfPlayer":
                 createWeekofPlayer(req,resp);
                 break;
-            case "salaryWeekofPlayer":
-                showListSalaryWeekofPlayer(req,resp);
-                break;
-            case "salaryWeekofCoach":
-                showListSalaryWeekofCoach(req,resp);
-                break;
+//            case "salaryWeekofPlayer":
+//                showListSalaryWeekofPlayer(req,resp);
+//                break;
+//            case "salaryWeekofCoach":
+//                showListSalaryWeekofCoach(req,resp);
+//                break;
             case "updatePlayerInfo":
                 UpdatePlayerInfo(req,resp);
                 break;
@@ -315,8 +316,9 @@ public class AdminController extends HttpServlet {
         }
     }
     public void showAllPlayer(HttpServletRequest req, HttpServletResponse resp){
-        List<Player> playerList = service.findAllPlayer();
-        req.setAttribute("listPlayer",playerList);
+        HttpSession session = req.getSession();
+        user user = (model.user) session.getAttribute("user");
+        List<Player> list = (List<Player>) session.getAttribute("listPlayer");
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/Test.jsp");
         try {
             requestDispatcher.forward(req,resp);
@@ -411,7 +413,9 @@ public class AdminController extends HttpServlet {
     }
 
     private void showformLogin(HttpServletRequest req, HttpServletResponse resp){
-        RequestDispatcher dispatcher = req.getRequestDispatcher("login.jsp");
+        HttpSession session = req.getSession();
+        session.removeAttribute("user");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/login.jsp");
         try {
             dispatcher.forward(req, resp);
         } catch (ServletException e) {
@@ -421,30 +425,33 @@ public class AdminController extends HttpServlet {
         }
     }
     private void login(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
+        List<Player> list = service.findAllPlayer();
+        HttpSession session = req.getSession();
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         IUserService userService = new UserService();
-        String destPage = "login.jsp";
+        String destPage = "/login.jsp";
         user user = userService.findByEmailAndPassword(email,password);
         String role = userService.roleUser(email);
         if(user !=null && role.equals("player")){
-            destPage = "/players";
+            destPage = "/Player.jsp";
+            session.setAttribute("user",user);
+            session.setAttribute("listPlayer",list);
         }if(user !=null && role.equals("coach")){
-            destPage = "/coach";
-            req.setAttribute("user",user);
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/Coach.jsp");
-            dispatcher.forward(req,resp);
+            destPage = "/Coach.jsp";
+            session.setAttribute("user",user);
+            session.setAttribute("listPlayer",list);
         }if(user !=null && role.equals("admin")){
-            destPage = "/admin";
+            destPage = "/Test.jsp";
+            session.setAttribute("user",user);
+            session.setAttribute("listPlayer",list);
         }else{
             String message = "Invalid email/password";
             req.setAttribute("message", message);
-
-            RequestDispatcher dispatcher = req.getRequestDispatcher(destPage);
-            dispatcher.forward(req, resp);
-
         }
-        resp.sendRedirect(destPage);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher(destPage);
+        requestDispatcher.forward(req,resp);
+
     }
 
     private void showPlayer(HttpServletRequest req, HttpServletResponse resp){

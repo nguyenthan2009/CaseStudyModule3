@@ -5,24 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecd3f3b0-4d53-4981-be0f-458bc6d29d81" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/playerDetailofPlayer.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/CoachController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CoachController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/admin/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/admin/AdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/admin/IAdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/admin/IAdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/player/IPlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/player/IPlayerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/player/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/player/PlayerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/Coach.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Coach.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ListSalaryWeekOfCoach.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ListSalaryWeekOfCoach.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ListSalaryWeekOfPlayer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ListSalaryWeekOfPlayer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Player.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Player.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/coachList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/coachList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/coachdetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/coachdetail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/createCoach.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/createCoach.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/createPlayer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/createPlayer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/playerDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/playerDetail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Test.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Test.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/playerList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/playerList.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +79,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MD3-Servlet-SQL-Bootstrap-master" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -312,7 +301,11 @@
       <workItem from="1630936651899" duration="8598000" />
       <workItem from="1630976323702" duration="8000" />
       <workItem from="1630976469060" duration="406000" />
-      <workItem from="1630987157106" duration="2084000" />
+      <workItem from="1630987157106" duration="5129000" />
+      <workItem from="1630996491162" duration="10175000" />
+      <workItem from="1631012241322" duration="620000" />
+      <workItem from="1631014310470" duration="3979000" />
+      <workItem from="1631019890692" duration="11630000" />
     </task>
     <servers />
   </component>
@@ -357,9 +350,9 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/coachdetail.jsp</url>
-          <line>33</line>
-          <option name="timeStamp" value="9" />
+          <url>file://$PROJECT_DIR$/src/main/java/controller/CoachController.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

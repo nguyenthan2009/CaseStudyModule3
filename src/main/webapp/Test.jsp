@@ -395,6 +395,28 @@
         color:#fff;
         background:#f9398c;
     }
+    #nav3 li:hover .nav {
+        display: block;
+    }
+    .nav{
+        position: absolute;
+        background-color: #cccccc;
+        display: none;
+    }
+    .nav li {
+        display:block;
+        width: 100%;
+        text-align: center;
+        padding-right: 20px;
+    }
+    #nav3  li{
+        position: relative;
+
+    }
+    #nav3 .nav li:hover{
+        color: black;
+        background-color: #ccc;
+    }
 
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -404,11 +426,23 @@
 </head>
 <body>
 <div class="head">
-   <ul>
+   <ul id="nav3">
        <li><a href="admin?action=listPlayer">Danh sách cầu thủ</a></li>
        <li><a href="admin?action=listCoach">Danh sách huấn luận viên</a> </li>
-       <li><a href="admin?action=salaryWeekofPlayer">Lương cầu thủ theo tuần</a> </li>
-       <li><a href="admin?action=salaryWeekofCoach">Lương huấn luận viên theo tuần</a> </li>
+       <li><a href="admin?action=salaryWeekofPlayer">Lương cầu thủ theo tuần</a>
+           <ul class="nav">
+               <li><a href="admin?action=salaryWeekofPlayer&week=1">  Tuần 1</a></li>
+               <li><a href="admin?action=salaryWeekofPlayer&week=2">  Tuần 2</a></li>
+               <li><a href="admin?action=salaryWeekofPlayer&week=3">  Tuần 3</a></li>
+           </ul>
+       </li>
+       <li><a href="admin?action=salaryWeekofCoach">Lương huấn luận viên theo tuần</a>
+            <ul class="nav">
+                <li><a href="admin?action=salaryWeekofCoach&week=1"> Lương tuần 1</a></li>
+                <li><a href="admin?action=salaryWeekofCoach&week=2"> Lương tuần 2</a></li>
+                <li><a href="admin?action=salaryWeekofCoach&week=3"> Lương tuần 3</a></li>
+            </ul>
+       </li>
        <li><a href="admin?action=newPlayer">Thêm cầu thủ</a> </li>
        <li><a href="admin?action=newCoach">Thêm huấn luận viên</a> </li>
        <li><a href="admin?action=login">Đăng xuất</a> </li>
