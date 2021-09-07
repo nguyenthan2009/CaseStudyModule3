@@ -3,6 +3,7 @@ package controller;
 import model.Coach;
 import model.weekSalaryofCoach;
 import model.weekSaralyofPlayer;
+import service.admin.AdminService;
 import service.coach.CoachService;
 
 import javax.servlet.RequestDispatcher;
@@ -18,6 +19,7 @@ import java.util.List;
 
 public class CoachController extends HttpServlet {
     CoachService coachService = new CoachService();
+    AdminService adminService = new AdminService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -59,6 +61,8 @@ public class CoachController extends HttpServlet {
 
     }
     private void pageCoach(HttpServletRequest req, HttpServletResponse resp){
+
+
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/Coach.jsp");
         try {
             requestDispatcher.forward(req,resp);

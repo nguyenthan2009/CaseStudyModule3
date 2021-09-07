@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<a href="players?action= &id=${user.id}"> Thông tin cá nhân</a>
+<a href="players?action=detailPlayer&id=${user.id}"> Thông tin cá nhân</a>
 <a> Biểu đồ lương cầu thủ</a>
 
 </body>

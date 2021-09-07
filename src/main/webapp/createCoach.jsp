@@ -41,7 +41,7 @@
 <body>
 
 <div class="container">
-  <h2>Add Coach&&userCoach</h2>
+  <h2>Add Coach And UserCoach</h2>
   <form method="post" id="loginForm">
     <div class="form-group">
       <label for="email">Email:</label>

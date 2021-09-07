@@ -5,10 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecd3f3b0-4d53-4981-be0f-458bc6d29d81" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Player.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/playerDetailofPlayer.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/CoachController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CoachController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/PlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/admin/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/admin/AdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/admin/IAdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/admin/IAdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/player/IPlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/player/IPlayerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/player/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/player/PlayerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Coach.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Coach.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/ListSalaryWeekOfCoach.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ListSalaryWeekOfCoach.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/ListSalaryWeekOfPlayer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ListSalaryWeekOfPlayer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Player.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Player.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/coachList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/coachList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/coachdetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/coachdetail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/createCoach.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/createCoach.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/createPlayer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/createPlayer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/playerDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/playerDetail.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,19 +102,6 @@
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.52">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CaseStudyModule3 [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -305,7 +306,13 @@
       <workItem from="1630854904970" duration="5115000" />
       <workItem from="1630863546211" duration="4041000" />
       <workItem from="1630888898347" duration="18543000" />
-      <workItem from="1630910376808" duration="10615000" />
+      <workItem from="1630910376808" duration="11261000" />
+      <workItem from="1630922062730" duration="1061000" />
+      <workItem from="1630928386531" duration="7851000" />
+      <workItem from="1630936651899" duration="8598000" />
+      <workItem from="1630976323702" duration="8000" />
+      <workItem from="1630976469060" duration="406000" />
+      <workItem from="1630987157106" duration="2084000" />
     </task>
     <servers />
   </component>
@@ -346,8 +353,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/service/admin/AdminService.java</url>
-          <line>548</line>
+          <line>541</line>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/coachdetail.jsp</url>
+          <line>33</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -42,7 +42,7 @@
 <body>
 
 <div class="container">
-    <h2>Add Player&&userPlayer</h2>
+    <h2>Add Player And UserPlayer</h2>
     <form method="post" id="loginForm">
         <div class="form">
         <div class="form-group">

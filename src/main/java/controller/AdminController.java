@@ -67,6 +67,10 @@ public class AdminController extends HttpServlet {
             case "login":
                 showformLogin(req,resp);
                 break;
+            case "playerDetail":
+                showPlayer(req,resp);
+                break;
+
 
             default:
                 showAllPlayer(req, resp);
@@ -252,15 +256,13 @@ public class AdminController extends HttpServlet {
         double bmiIndex = Double.parseDouble(req.getParameter("bmiIndex"));
         int formIndex = Integer.parseInt(req.getParameter("formIndex"));
         service.saveUserAndPlayer(email,password,fullName,bornYear,address,position,salary,status,image,role,height,weight,bmiIndex,formIndex);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/createPlayer.jsp");
         try {
-            dispatcher.forward(req,resp);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+            resp.sendRedirect("/admin");
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
         }
     }
+
     public void showformWeekofPlayer(HttpServletRequest req, HttpServletResponse resp){
         RequestDispatcher dispatcher = req.getRequestDispatcher("/weekofPlayer.jsp");
         try {
@@ -354,8 +356,7 @@ public class AdminController extends HttpServlet {
     }
 
     private void showUpdatePlayerInfo(HttpServletRequest req, HttpServletResponse resp) {
-//        int id = Integer.parseInt(req.getParameter("id"));
-        int id = 1;
+        int id = Integer.parseInt(req.getParameter("id"));
         Player existingPlayer =service.getPlayerByID(id);
         req.setAttribute("player", existingPlayer);
         playerStats playerStats = service.getPlayerStatsByID(id);
@@ -372,6 +373,7 @@ public class AdminController extends HttpServlet {
     }
 
     private void UpdatePlayerInfo(HttpServletRequest req, HttpServletResponse resp) {
+        int id = Integer.parseInt(req.getParameter("id"));
         String namePlayer = req.getParameter("namePlayer");
         int bornYear = Integer.parseInt(req.getParameter("bornYear"));
         String address = req.getParameter("address");
@@ -384,19 +386,16 @@ public class AdminController extends HttpServlet {
         double bmiIndex = Double.parseDouble(req.getParameter("bmiIndex"));
         int formIndex = Integer.parseInt(req.getParameter("formIndex"));
 
-        service.updatePlayer(namePlayer, bornYear, address, position, salary, status, image, height, weight, bmiIndex, formIndex);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/updatePlayerInfo.jsp");
+        service.updatePlayer(id,namePlayer, bornYear, address, position, salary, status, image, height, weight, bmiIndex, formIndex);
         try {
-            dispatcher.forward(req, resp);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+            resp.sendRedirect("/admin");
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
         }
-    }
+        }
+
     private void deletePlayer(HttpServletRequest req, HttpServletResponse resp) {
-//        int id = Integer.parseInt(req.getParameter("id"));
-        int id = 5;
+        int id = Integer.parseInt(req.getParameter("id"));
         service.deletePlayer(id);
 
         List<Player> playerList = service.findAllPlayer();
@@ -432,6 +431,9 @@ public class AdminController extends HttpServlet {
             destPage = "/players";
         }if(user !=null && role.equals("coach")){
             destPage = "/coach";
+            req.setAttribute("user",user);
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/Coach.jsp");
+            dispatcher.forward(req,resp);
         }if(user !=null && role.equals("admin")){
             destPage = "/admin";
         }else{
@@ -450,8 +452,8 @@ public class AdminController extends HttpServlet {
         Player existingPlayer =service.getPlayerByID(id);
         req.setAttribute("player", existingPlayer);
         playerStats playerStats = service.getPlayerStatsByID(id);
-        req.setAttribute("playerStats", playerStats);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("");
+        req.setAttribute("playerstats", playerStats);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/playerDetail.jsp");
         try {
             dispatcher.forward(req,resp);
         } catch (ServletException e) {

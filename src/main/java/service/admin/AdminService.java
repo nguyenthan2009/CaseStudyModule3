@@ -488,7 +488,7 @@ public class AdminService implements IAdminService {
                 String status = rs.getString("status");
                 String image = rs.getString("image");
 
-                player = new Player(namePlayer, bornYear, address, position, salary, status, image);
+                player = new Player(id,namePlayer, bornYear, address, position, salary, status, image);
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -517,16 +517,9 @@ public class AdminService implements IAdminService {
         return playerStats;
     }
     @Override
-    public void updatePlayer(String namePlayer, int bornYear, String address, String position, double salary, String status, String image, double height, double weight, double bmiIndex, int formIndex) {
+    public void updatePlayer(int id,String namePlayer, int bornYear, String address, String position, double salary, String status, String image, double height, double weight, double bmiIndex, int formIndex) {
         try {
             connection.setAutoCommit(false);
-            PreparedStatement statement = connection.prepareStatement(SELECT_ID_PLAYERBYNAME);
-            statement.setString(1, namePlayer);
-            ResultSet resultSet = statement.executeQuery();
-              int id =0;
-            while (resultSet.next()) {
-                id = resultSet.getInt("id");
-            }
             PreparedStatement statement1 = connection.prepareStatement(UPDATE_PLAYER_SQL);
             statement1.setString(1, namePlayer);
             statement1.setInt(2, bornYear);

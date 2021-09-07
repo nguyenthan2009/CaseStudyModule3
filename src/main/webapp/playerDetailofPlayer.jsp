@@ -71,21 +71,33 @@
             <th>bmiIndex</th>
             <th>formIndex</th>
         </tr>
-            <tr>
-                <td>${playerstats.height}</td>
-                <td>${playerstats.weight}</td>
-                <td>${playerstats.bmiIndex}</td>
-                <td>${playerstats.formIndex}</td>
-            </tr>
+        <tr>
+            <td>${playerstats.height}</td>
+            <td>${playerstats.weight}</td>
+            <td>${playerstats.bmiIndex}</td>
+            <td>${playerstats.formIndex}</td>
+        </tr>
     </table>
 </div>
-<button class="bubble-legend-symbol"><a href="admin?action=deletePlayer&id=${player.id}">Xoá cầu thủ</a> </button>
-<button class="bubble-legend-symbol1"><a href="admin?action=updatePlayerInfo&id=${player.id}">Sửa cầu thủ</a> </button>
 
 
+<div class="container">
+    <caption><h2>SalaryWeekofPlayer</h2></caption>
+    <table class="table table-dark table-striped">
+        <tr>
+            <th>namePlayer</th>
+            <th>Week</th>
+            <th>SalaryofWeek</th>
 
+        </tr>
+        <tr>
+            <td>${weekSaralyofPlayer.namePlayer}</td>
+            <td>${weekSaralyofPlayer.week}</td>
+            <td>${weekSaralyofPlayer.weekSalary}</td>
 
-
+        </tr>
+    </table>
+</div>
 
 
 </body>
