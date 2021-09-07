@@ -28,6 +28,7 @@ public class UserService implements  IUserService {
 
             if (result.next()) {
                 user = new user();
+                user.setId(result.getInt("id"));
                 user.setFullName(result.getString("fullname"));
                 user.setEmail(email);
                 user.setPassWord(password);

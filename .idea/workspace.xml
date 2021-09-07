@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecd3f3b0-4d53-4981-be0f-458bc6d29d81" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/91d19032-714f-4dd9-9f0d-5a2255947958.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/91d19032-714f-4dd9-9f0d-5a2255947958.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/config/ConnectMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/ConnectMySQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/admin/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/admin/AdminService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +80,6 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="database.sql.templating" />
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.52">
     <configuration name="CaseStudyModule3 [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -266,10 +259,6 @@
       <workItem from="1630552853876" duration="3582000" />
       <workItem from="1630558444130" duration="1018000" />
       <workItem from="1630566679331" duration="2245000" />
-      <workItem from="1630572720776" duration="951000" />
-      <workItem from="1630640545140" duration="5416000" />
-      <workItem from="1630676906043" duration="1716000" />
-      <workItem from="1630728698158" duration="1064000" />
     </task>
     <servers />
   </component>
@@ -300,17 +289,8 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand>
-      <path>
-        <item name="CaseStudyModule3" type="b2602c69:ProjectViewProjectNode" />
-        <item name="CaseStudyModule3a" type="462c0819:PsiDirectoryNode" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/CaseStudyModule3$CaseStudyModule3__dependencies_.ic" NAME="CaseStudyModule3 [dependencies] Coverage Results" MODIFIED="1630417143338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/CaseStudyModule3$Tomcat_9_0_52.ic" NAME="Tomcat 9.0.52 Coverage Results" MODIFIED="1630413062760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/CaseStudyModule3$CaseStudyModule3__dependencies_.ic" NAME="CaseStudyModule3 [dependencies] Coverage Results" MODIFIED="1630417143338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

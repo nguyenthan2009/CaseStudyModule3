@@ -1,26 +1,16 @@
 package model;
 
 public class playerStats {
-    private Player Player;
     private double height;
     private double weight;
     private double bmiIndex;
     private int formIndex;
 
-    public playerStats(Player Player, double height, double weight, double bmiIndex, int formIndex) {
-        this.Player = Player;
+    public playerStats( double height, double weight, double bmiIndex, int formIndex) {
         this.height = height;
         this.weight = weight;
         this.bmiIndex = bmiIndex;
         this.formIndex = formIndex;
-    }
-
-    public Player getFootballPlayer() {
-        return Player;
-    }
-
-    public void setFootballPlayer(Player Player) {
-        this.Player = Player;
     }
 
     public double getHeight() {

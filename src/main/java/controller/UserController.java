@@ -58,18 +58,28 @@ public class UserController extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         IUserService userService = new UserService();
-          String destPage = "/users";
+          String destPage = "login.jsp";
           user user = userService.findByEmailAndPassword(email,password);
           String role = userService.roleUser(email);
           if(user !=null && role.equals("player")){
               destPage = "/players";
+              req.setAttribute("user",user);
+              RequestDispatcher dispatcher = req.getRequestDispatcher("/Player.jsp");
+              dispatcher.forward(req,resp);
           }if(user !=null && role.equals("coach")){
               destPage = "/coach";
+              req.setAttribute("user",user);
+              RequestDispatcher dispatcher = req.getRequestDispatcher("/Coach.jsp");
+              dispatcher.forward(req,resp);
           }if(user !=null && role.equals("admin")){
               destPage = "/admin";
           }else{
             String message = "Invalid email/password";
             req.setAttribute("message", message);
+
+            RequestDispatcher dispatcher = req.getRequestDispatcher(destPage);
+            dispatcher.forward(req, resp);
+
         }
          resp.sendRedirect(destPage);
 

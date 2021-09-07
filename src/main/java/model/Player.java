@@ -20,6 +20,16 @@ private String image;
         this.status = status;
         this.image = image;
     }
+    public Player( String namePlayer, int bornYear, String address, String playPossition, int salary, String status, String image) {
+        this.namePlayer = namePlayer;
+        this.bornYear = bornYear;
+        this.address = address;
+        this.playPossition = playPossition;
+        this.salary = salary;
+        this.status = status;
+        this.image = image;
+    }
+
 
 
     public int getId() {
