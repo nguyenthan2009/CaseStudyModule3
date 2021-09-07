@@ -75,7 +75,5 @@ public class CoachController extends HttpServlet {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 }
