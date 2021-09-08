@@ -44,9 +44,11 @@ public class AdminService implements IAdminService {
     public static final String DELETE_FROM_WEEKOFPLAYER = "delete from weekofplayer where id_player = ?;";
     public static final String DELETE_FROM_ROLE = "delete from role where id = ?;";
     public static  final String SELECT_ID_USER_FROM_PLAYER_BY_ID = "select id_user from player where id = ?;";
-
+    public static final String SELECT_PlayerByName = "select id,bornYear,address,position,salary,status,image from player where namePlayer =?";
     public static final String SELECT_SALARYOFCOACH_BYID = "select coach.nameCoach, week,( coach.salary + bonus) as salaryofWeek from coach join weekofcoach on coach.id = weekofcoach.id_coach where coach.id =?;";
 
+    public static final String SELECT_PlayerBySalary = "select*from player where (salary> ?) and (salary< ?);";
+    public static final String SELECT_PlayerByStatus = "select*from player where status = ?";
     @Override
     public List<Coach> findAll() {
         List<Coach> coachList = new ArrayList<>();
@@ -590,6 +592,83 @@ public class AdminService implements IAdminService {
 
     }
 
+    @Override
+    public List<Player> findPlayerByName(String namePlayer) {
+        List<Player> list = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_PlayerByName);
+            preparedStatement.setString(1,namePlayer);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                int id = resultSet.getInt("id");
+                int bornYear = resultSet.getInt("bornYear");
+                String address = resultSet.getString("address");
+                String position = resultSet.getString("position");
+                int salary = resultSet.getInt("salary");
+                String status = resultSet.getString("status");
+                String image = resultSet.getString("image");
 
+                list.add(new Player(id,namePlayer, bornYear, address, position, salary, status, image));
+            }
+            return list;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return  null;
+
+    }
+
+    @Override
+    public List<Player> findPlayerBySalary(double minSalary, double maxSalary) {
+        List<Player> list = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_PlayerBySalary);
+            preparedStatement.setDouble(1,minSalary);
+            preparedStatement.setDouble(2,maxSalary);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                int id = resultSet.getInt("id");
+                String namePlayer = resultSet.getString("namePlayer");
+                int bornYear = resultSet.getInt("bornYear");
+                String address = resultSet.getString("address");
+                String position = resultSet.getString("position");
+                int salary = resultSet.getInt("salary");
+                String status = resultSet.getString("status");
+                String image = resultSet.getString("image");
+
+                list.add(new Player(id,namePlayer, bornYear, address, position, salary, status, image));
+
+            }
+            return list;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return  null;
+    }
+
+    @Override
+    public List<Player> findPlayerStatus(String status) {
+        List<Player> list = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_PlayerByStatus);
+            preparedStatement.setString(1,status);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                int id = resultSet.getInt("id");
+                String namePlayer = resultSet.getString("namePlayer");
+                int bornYear = resultSet.getInt("bornYear");
+                String address = resultSet.getString("address");
+                String position = resultSet.getString("position");
+                int salary = resultSet.getInt("salary");
+                String image = resultSet.getString("image");
+
+                list.add(new Player(id,namePlayer, bornYear, address, position, salary, status, image));
+            }
+            return  list;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return  null;
+    }
 }
 

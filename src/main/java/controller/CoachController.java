@@ -3,6 +3,8 @@ package controller;
 import model.*;
 import service.admin.AdminService;
 import service.coach.CoachService;
+import service.user.IUserService;
+import service.user.UserService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,9 +34,25 @@ public class CoachController extends HttpServlet {
             case "coachdetail":
                 coachdetail(req, resp);
                 break;
+            case "login":
+                formLogin(req,resp);
+                break;
             default:
                 pageCoach(req,resp);
                 break;
+        }
+    }
+
+    private void formLogin(HttpServletRequest req, HttpServletResponse resp) {
+        HttpSession session = req.getSession();
+        session.removeAttribute("user");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/login.jsp");
+        try {
+            requestDispatcher.forward(req,resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -58,7 +76,53 @@ public class CoachController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String action = req.getParameter("action");
+        if (action == null) {
+            action = "";
+        }
+        switch (action) {
+            case "login":
+                Login(req,resp);
+                break;
+            default:
+                pageCoach(req,resp);
+                break;
+        }
+    }
 
+    private void Login(HttpServletRequest req, HttpServletResponse resp) {
+        List<Player> list = adminService.findAllPlayer();
+        HttpSession session = req.getSession();
+        String email = req.getParameter("email");
+        String password = req.getParameter("password");
+        IUserService userService = new UserService();
+        String destPage = "/login.jsp";
+        user user = userService.findByEmailAndPassword(email,password);
+        String role = userService.roleUser(email);
+        if(user !=null && role.equals("player")){
+            destPage = "/Player.jsp";
+            session.setAttribute("user",user);
+            session.setAttribute("listPlayer",list);
+        }if(user !=null && role.equals("coach")){
+            destPage = "/Coach.jsp";
+            session.setAttribute("user",user);
+            session.setAttribute("listPlayer",list);
+        }if(user !=null && role.equals("admin")){
+            destPage = "/Test.jsp";
+            session.setAttribute("user",user);
+            session.setAttribute("listPlayer",list);
+        }else{
+            String message = "Invalid email/password";
+            req.setAttribute("message", message);
+        }
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher(destPage);
+        try {
+            requestDispatcher.forward(req,resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void coachdetail(HttpServletRequest req, HttpServletResponse resp) {

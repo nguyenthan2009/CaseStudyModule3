@@ -22,6 +22,10 @@ public interface IAdminService {
     void updatePlayer (int id,String namePlayer, int bornYear, String address, String position, double salary, String status, String image, double height, double weight, double bmiIndex, int formIndex );
 
     void deletePlayer (int id );
+    List<Player> findPlayerByName(String namePlayer);
+    List<Player> findPlayerBySalary(double minSalary, double maxSalary);
+    List<Player> findPlayerStatus(String status);
+
 
 
 

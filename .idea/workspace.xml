@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecd3f3b0-4d53-4981-be0f-458bc6d29d81" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/searchPlayerBySalary.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/CoachController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CoachController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/admin/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/admin/AdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/admin/IAdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/admin/IAdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Coach.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Coach.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Player.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Player.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/playerDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/playerDetail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/playerList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/playerList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/weekSalaryofPlayer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/seachPlayerByName.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +84,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MD3-Servlet-SQL-Bootstrap-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BaiKiemTraModule3" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -86,6 +96,17 @@
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.52">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CaseStudyModule3 [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -301,7 +322,11 @@
       <workItem from="1631012241322" duration="620000" />
       <workItem from="1631014310470" duration="3979000" />
       <workItem from="1631019890692" duration="11630000" />
-      <workItem from="1631032119215" duration="970000" />
+      <workItem from="1631032119215" duration="2453000" />
+      <workItem from="1631034610055" duration="46000" />
+      <workItem from="1631061579936" duration="6399000" />
+      <workItem from="1631074208101" duration="1317000" />
+      <workItem from="1631076087724" duration="7009000" />
     </task>
     <servers />
   </component>
@@ -337,12 +362,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/service/admin/AdminService.java</url>
-          <line>521</line>
+          <line>523</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/service/admin/AdminService.java</url>
-          <line>541</line>
+          <line>543</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>

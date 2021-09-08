@@ -38,6 +38,9 @@
             color: white;
             background-color: green;
         }
+        .body{
+            margin-top: 46px;
+        }
 
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -47,9 +50,11 @@
 <body>
 <div class="head">
     <a href="coach?action=coachdetail&id=${user.id}">Thông tin Huấn luận viên</a>
+    <a href="coach?action=login" style="margin-left: 400px">Đăng xuất</a>
 </div>
 <div class="body">
 <div class="container">
+    <h3> Danh sách cầu thủ</h3>
     <div id="products" class="row list-group">
         <c:forEach var="listPlayer1" items="${listPlayer}">
             <div class="item  col-xs-3 col-lg-3">

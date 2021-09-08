@@ -142,15 +142,16 @@
 <body>
 <div class="head">
         <ul id="nav3">
-            <li><a href="admin?action=listPlayer">Tìm kiếm theo tên</a></li>
-            <li><a href="admin?action=listCoach">Tìm kiếm theo khoảng lương</a> </li>
-            <li><a href="admin?action=salaryWeekofCoach">Tìm kiếm theo trạng thái</a>
+            <li><a href="admin?action=searchbyName">Tìm kiếm theo tên</a></li>
+            <li><a href="admin?action=searchbySalary">Tìm kiếm theo khoảng lương</a> </li>
+            <li><a href="admin?action=searchbyStatus">Tìm kiếm theo trạng thái</a>
                 <ul class="nav">
-                    <li><a href="admin?action=salaryWeekofCoach&week=1"> Đang chơi</a></li>
-                    <li><a href="admin?action=salaryWeekofCoach&week=2"> Chấn thương</a></li>
-                    <li><a href="admin?action=salaryWeekofCoach&week=3"> Đã nghỉ hưu</a></li>
+                    <li><a href="admin?action=searchbyStatus&status=Dang choi"> Đang chơi</a></li>
+                    <li><a href="admin?action=searchbyStatus&status=Chan thuong"> Chấn thương</a></li>
+                    <li><a href="admin?action=searchbyStatus&status=Nghi huu"> Đã nghỉ hưu</a></li>
                 </ul>
             </li>
+            <li><a href="admin">Quay lại trang chủ</a>
         </ul>
 
 </div>

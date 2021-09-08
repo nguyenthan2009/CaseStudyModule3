@@ -9,10 +9,39 @@
 <html>
 <head>
     <title>Title</title>
+    <style>
+        .head{
+            position: fixed;
+            top:0;
+            left: 0;
+            right: 0;
+            background-color: chocolate;
+            height: 50px;
+            z-index: 1;
+            text-align: center;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+            display: inline-block;
+            line-height: 50px;
+        }
+        :hover a{
+            color: black;
+        }
+        h4{
+            text-align: center;
+        }
+        .head a{
+            display: inline-block;
+            color: white;
+            background-color: green;
+        }
+    </style>
 </head>
 <body>
+<div class="head">
 <a href="players?action=detailPlayer&id=${user.id}"> Thông tin cá nhân</a>
-<a> Biểu đồ lương cầu thủ</a>
-
+</div>
 </body>
 </html>

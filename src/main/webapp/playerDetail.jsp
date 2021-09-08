@@ -25,12 +25,12 @@
             padding-top: 70px;
         }
         .bubble-legend-symbol{
-            margin-left: 200px;
+            margin-left: 340px;
             background-color: red;
             color: white;
         }
         .bubble-legend-symbol1{
-            margin-left: 240px;
+            margin-left: 320px;
             background-color: forestgreen;
         }
         a{
@@ -63,7 +63,7 @@
     </table>
 </div>
 <div class="container">
-    <caption><h2>SalaryWeekofPlayer</h2></caption>
+    <caption><h2>StatsOfPlayer</h2></caption>
     <table class="table table-dark table-striped">
         <tr>
             <th>Height</th>
@@ -77,6 +77,23 @@
                 <td>${playerstats.bmiIndex}</td>
                 <td>${playerstats.formIndex}</td>
             </tr>
+    </table>
+</div>
+<div class="container">
+    <caption><h2>SalaryWeekofPlayer</h2></caption>
+    <table class="table table-dark table-striped">
+        <tr>
+            <th>namePlayer</th>
+            <th>Week</th>
+            <th>SalaryofWeek</th>
+
+        </tr>
+        <tr>
+            <td>${weekSaralyofPlayer.namePlayer}</td>
+            <td>${weekSaralyofPlayer.week}</td>
+            <td>${weekSaralyofPlayer.weekSalary}</td>
+
+        </tr>
     </table>
 </div>
 <button class="bubble-legend-symbol"><a href="admin?action=deletePlayer&id=${player.id}">Xoá cầu thủ</a> </button>

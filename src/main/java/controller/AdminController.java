@@ -2,6 +2,7 @@ package controller;
 
 import model.*;
 import service.admin.AdminService;
+import service.player.PlayerService;
 import service.user.IUserService;
 import service.user.UserService;
 
@@ -20,6 +21,7 @@ import java.util.List;
 public class AdminController extends HttpServlet {
     private AdminService service = new AdminService();
     private  UserService userService = new UserService();
+    private PlayerService playerService = new PlayerService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -71,6 +73,16 @@ public class AdminController extends HttpServlet {
             case "playerDetail":
                 showPlayer(req,resp);
                 break;
+            case "searchbyName":
+                formSearchByName(req,resp);
+                break;
+            case "searchbySalary":
+                formSearchBySalary(req,resp);
+                break;
+            case "searchbyStatus":
+                searchByStatus(req,resp);
+                break;
+
 
 
             default:
@@ -80,8 +92,44 @@ public class AdminController extends HttpServlet {
         }
     }
 
+    private void searchByStatus(HttpServletRequest req, HttpServletResponse resp) {
+        String status = req.getParameter("status");
+        List<Player> list = service.findPlayerStatus(status);
+        req.setAttribute("listPlayer",list);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/playerList.jsp");
+        try {
+            requestDispatcher.forward(req,resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void formSearchBySalary(HttpServletRequest req, HttpServletResponse resp) {
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/searchPlayerBySalary.jsp");
+        try {
+            dispatcher.forward(req,resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void formSearchByName(HttpServletRequest req, HttpServletResponse resp) {
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/seachPlayerByName.jsp");
+        try {
+            dispatcher.forward(req,resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void formSalaryWeekOfCoach(HttpServletRequest req, HttpServletResponse resp) {
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/weekSalaryofPlayer.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/seachPlayerByName.jsp");
         try {
             dispatcher.forward(req,resp);
         } catch (ServletException e) {
@@ -155,11 +203,47 @@ public class AdminController extends HttpServlet {
             case "login":
                 login(req,resp);
                 break;
+            case "searchbyName":
+                searchbyName(req,resp);
+                break;
+            case "searchbySalary":
+                searchbySalary(req,resp);
+                break;
+
 
 
             default:
                 break;
 
+        }
+    }
+
+    private void searchbySalary(HttpServletRequest req, HttpServletResponse resp) {
+        double minsalary = Double.parseDouble(req.getParameter("minsalary"));
+        double maxsalary = Double.parseDouble(req.getParameter("maxsalary"));
+        List<Player> list = service.findPlayerBySalary(minsalary,maxsalary);
+        req.setAttribute("listPlayer",list);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/playerList.jsp");
+        try {
+            dispatcher.forward(req,resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void searchbyName(HttpServletRequest req, HttpServletResponse resp) {
+        String namePlayer = req.getParameter("namePlayer");
+        List<Player> list = service.findPlayerByName(namePlayer);
+        req.setAttribute("listPlayer",list);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/playerList.jsp");
+        try {
+            dispatcher.forward(req,resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -230,17 +314,13 @@ public class AdminController extends HttpServlet {
         int week = Integer.parseInt(req.getParameter("week"));
         double bonus = Double.parseDouble(req.getParameter("bonus"));
         service.saveSalaryWeekofCoach(nameCoach, week, bonus);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/weekofCoach.jsp");
         try {
-            dispatcher.forward(req,resp);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+            resp.sendRedirect("/admin");
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
         }
-
-
     }
+
     public void createNewPlayer(HttpServletRequest req, HttpServletResponse resp){
         String email =req.getParameter("email");
         String password = req.getParameter("password");
@@ -281,27 +361,14 @@ public class AdminController extends HttpServlet {
         int playtimeofWeek = Integer.parseInt(req.getParameter("playtimeofWeek"));
         double  preformedSalary = Double.parseDouble(req.getParameter("preformedSalary"));
         service.saveSalaryWeekofPlayer(namePlayer,week,bonus,playtimeofWeek,preformedSalary);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/weekofPlayer.jsp");
         try {
-            dispatcher.forward(req,resp);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+            resp.sendRedirect("/admin");
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
         }
 
+    }
 
-    }
-    public void formSalaryWeekOfPlayer(HttpServletRequest req, HttpServletResponse resp){
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/weekSalaryofPlayer.jsp");
-        try {
-            dispatcher.forward(req,resp);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
     public void showListSalaryWeekofPlayer(HttpServletRequest req, HttpServletResponse resp){
          int week = Integer.parseInt(req.getParameter("week"));
           List<weekSaralyofPlayer> list = service.WEEK_SALARYOF_PLAYER_LIST(week);
@@ -460,6 +527,8 @@ public class AdminController extends HttpServlet {
         req.setAttribute("player", existingPlayer);
         playerStats playerStats = service.getPlayerStatsByID(id);
         req.setAttribute("playerstats", playerStats);
+        weekSaralyofPlayer weekSaralyofPlayer = playerService.getSalaryPlayer(id);
+        req.setAttribute("weekSaralyofPlayer",weekSaralyofPlayer);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/playerDetail.jsp");
         try {
             dispatcher.forward(req,resp);

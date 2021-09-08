@@ -68,20 +68,19 @@ public class UserController extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         IUserService userService = new UserService();
-          String destPage = "/users";
+          String destPage = "/login.jsp";
           user user = userService.findByEmailAndPassword(email,password);
           String role = userService.roleUser(email);
           if(user !=null && role.equals("player")){
-              destPage = "/players";
-              req.setAttribute("user",user);
-
+              destPage = "/Player.jsp";
+              HttpSession session = req.getSession();
+              session.setAttribute("user",user);
           }else if(user !=null && role.equals("coach")){
               HttpSession session = req.getSession();
               destPage = "/Coach.jsp";
               session.setAttribute("user",user);
               session.setAttribute("listPlayer",list);
           }else if(user !=null && role.equals("admin")){
-              destPage = "/admin";
               HttpSession session = req.getSession();
               destPage = "/Test.jsp";
               session.setAttribute("user",user);
